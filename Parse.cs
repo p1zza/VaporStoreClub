@@ -13,17 +13,16 @@ namespace WindowsFormsApp1
     {
         private string path;
         
-
-        Parse(string Path)
+        public Parse(string Path)
         {
             path = Path;
         }
 
-        private void GetDataFromExcel(string pathToFile)
+        public void GetDataFromExcel()
         {
             Application xlApp = new Application();
 
-            Workbook xlWorkBook = xlApp.Workbooks.Open(pathToFile, 
+            Workbook xlWorkBook = xlApp.Workbooks.Open(path, 
                 UpdateLinks: 0, 
                 ReadOnly: true, 
                 Format: 5,
@@ -39,10 +38,18 @@ namespace WindowsFormsApp1
                 Local: false, 
                 CorruptLoad: false); 
 
-            Worksheet xlWorkSheet = (Worksheet)xlWorkBook.Worksheets.get_Item(1);
+            Worksheet xlWorkSheet = xlWorkBook.Item(1);
             Range columnRange = xlWorkSheet.UsedRange; 
             
                 
+        }
+    }
+
+    public static class WorksheetExtension
+    {
+        public static object Item(this Workbook worksheet, int item)
+        {
+            return worksheet.Item(item); 
         }
     }
 }

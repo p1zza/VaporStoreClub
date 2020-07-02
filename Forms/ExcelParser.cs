@@ -26,7 +26,8 @@ namespace WindowsFormsApp1.Forms
 
         private void GetDataFromExcel(string path)
         {
-
+            Parse parser = new Parse(path);
+            parser.GetDataFromExcel();
         }
     }
 }
