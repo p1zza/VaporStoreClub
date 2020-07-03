@@ -29,17 +29,24 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
             this.Number_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price_Columnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActionButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -47,22 +54,15 @@
             this.Number_Column,
             this.Name_Column,
             this.Price_Columnt,
+            this.AmountStatus,
             this.Amount_Column,
-            this.Category_Column});
+            this.Category_Column,
+            this.ActionButtonColumn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 54);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 384);
+            this.dataGridView1.Size = new System.Drawing.Size(1205, 637);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Найдено товаров:";
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // Number_Column
             // 
@@ -82,6 +82,12 @@
             this.Price_Columnt.Name = "Price_Columnt";
             this.Price_Columnt.Width = 58;
             // 
+            // AmountStatus
+            // 
+            this.AmountStatus.HeaderText = "На складе";
+            this.AmountStatus.Name = "AmountStatus";
+            this.AmountStatus.Width = 85;
+            // 
             // Amount_Column
             // 
             this.Amount_Column.HeaderText = "Кол-во";
@@ -94,11 +100,30 @@
             this.Category_Column.Name = "Category_Column";
             this.Category_Column.Width = 85;
             // 
+            // ActionButtonColumn
+            // 
+            this.ActionButtonColumn.HeaderText = "Действия";
+            this.ActionButtonColumn.Name = "ActionButtonColumn";
+            this.ActionButtonColumn.ReadOnly = true;
+            this.ActionButtonColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ActionButtonColumn.Text = "Обновить товар на сайте";
+            this.ActionButtonColumn.UseColumnTextForButtonValue = true;
+            this.ActionButtonColumn.Width = 63;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Найдено товаров:";
+            // 
             // ParseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1229, 703);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -120,7 +145,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Number_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price_Columnt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_Column;
+        private System.Windows.Forms.DataGridViewButtonColumn ActionButtonColumn;
     }
 }

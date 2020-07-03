@@ -28,6 +28,14 @@ namespace WindowsFormsApp1
             wc = new WCObject(API);
         }
 
+        public static Product GetByID(int ID)
+        {
+            //foreach(Product p in products.FindIndex()
+            //{
+            //    return p;
+            //}
+            //return null;
+        }
         async static Task<List<Product>> GetProductsAsync()
         {
             for(int i = 0; i<50;i++)

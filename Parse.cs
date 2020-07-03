@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using WindowsFormsApp1.Forms;
 using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Word;
 
 namespace WindowsFormsApp1
 {
@@ -18,7 +19,7 @@ namespace WindowsFormsApp1
             path = Path;
         }
 
-        public void GetDataFromExcel()
+        public void StartParseExcel()
         {
             Application xlApp = new Application();
 
@@ -38,18 +39,25 @@ namespace WindowsFormsApp1
                 Local: false, 
                 CorruptLoad: false); 
 
-            Worksheet xlWorkSheet = xlWorkBook.Item(1);
-            Range columnRange = xlWorkSheet.UsedRange; 
-            
-                
+            Worksheet xlWorkSheet = xlWorkBook.Worksheets.Item[1];
+            Range columnRange = xlWorkSheet.UsedRange;
+            int columnsCount  = columnRange.Columns.Count;
+            int rowsCount = columnRange.Rows.Count;
+            GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount);
         }
-    }
 
-    public static class WorksheetExtension
-    {
-        public static object Item(this Workbook worksheet, int item)
+        public void GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount)
         {
-            return worksheet.Item(item); 
+            object[] vs = new object[rowsCount];
+            //Range range = sheet.Rows.Item[rows, columns];
+            for(int row = 1; row < rowsCount; row++)
+            {
+                vs[row-1] = sheet.Rows.EntireRow.Item[row].Value();
+            } 
+            foreach(string[,] o in vs)
+            {
+                o[1,1] = vs.GetValue(1).ToString();
+            }
         }
     }
 }
