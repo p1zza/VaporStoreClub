@@ -53,20 +53,11 @@ namespace WindowsFormsApp1
 
         private void InsertData(List<Product> products)
         {
-            string stock_status;
             try
             {
                 foreach (Product p in products)
                 {
-                    if(p.stock_status=="instock")
-                    {
-                        stock_status = "В наличии";
-                    }    
-                    else
-                    {
-                        stock_status = "Отсутствует";
-                    }
-                    dataGridView1.Rows.Insert(products.IndexOf(p), p.id, p.name, p.regular_price, stock_status, p.stock_quantity, p.categories.Last().name);
+                    dataGridView1.Rows.Insert(products.IndexOf(p), p.id, p.name, p.regular_price, p.stock_status, p.stock_quantity, p.categories.Last().name);
                 }
             }
             catch(Exception ex)
@@ -79,15 +70,7 @@ namespace WindowsFormsApp1
         {
             if(e.ColumnIndex==6)
             {
-                for(int i = 0; i < e.ColumnIndex; i++)
-                {
-                    string ID = dataGridView1.CurrentRow.Cells[i].Value.ToString();
-                    Product product = Rest.GetByID(Convert.ToInt32(ID));
-                    product.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    product.regular_price = Convert.ToDecimal(dataGridView1.CurrentRow.Cells[2].Value.ToString());
-                    product.stock_quantity = Convert.ToInt32(dataGridView1.CurrentRow.Cells[4].Value.ToString());
-                    product.categories.Last().name = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-                }
+                  Task.Run(async () => { await Rest.UpdateProductFromDataRow(dataGridView1.CurrentRow); }); 
             }
         }
     }

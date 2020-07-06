@@ -28,13 +28,33 @@ namespace WindowsFormsApp1
             wc = new WCObject(API);
         }
 
-        public static Product GetByID(int ID)
+        public async static void UpdateById(int ID,Product product)
         {
-            //foreach(Product p in products.FindIndex()
-            //{
-            //    return p;
-            //}
-            //return null;
+            await wc.Product.Update(ID, product);
+        }
+
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Number_Column;     1
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Name_Column;       2
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Price_Columnt;     3
+        //private System.Windows.Forms.DataGridViewTextBoxColumn AmountStatus;      4
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Amount_Column;     5
+        //private System.Windows.Forms.DataGridViewTextBoxColumn Category_Column;   6
+        //private System.Windows.Forms.DataGridViewButtonColumn ActionButtonColumn; 7
+
+        public static async Task UpdateProductFromDataRow(DataGridViewRow row)
+        {
+            await Task.Run(() =>
+            {
+                Product product = products[products.IndexOf(products.Where(o => o.id == Convert.ToInt32(row.Cells[0].Value)).First())];
+                product.id = Convert.ToInt32(row.Cells[0].Value);
+                product.name = row.Cells[1].Value.ToString();
+                product.regular_price = Convert.ToInt32(row.Cells[2].Value);
+                product.stock_status = row.Cells[3].Value.ToString();
+                product.stock_quantity = Convert.ToInt32(row.Cells[4].Value);
+                product.categories.Last().name = row.Cells[5].Value.ToString();
+                product.manage_stock = true;
+                wc.Product.Update(product.id.Value, product);
+            });
         }
         async static Task<List<Product>> GetProductsAsync()
         {
