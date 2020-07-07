@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using WindowsFormsApp1.Forms;
 using Microsoft.Office.Interop.Excel;
+//using System.Windows.Forms;
+using WooCommerceNET.WooCommerce.v3;
 //using Microsoft.Office.Interop.Word;
 
 namespace WindowsFormsApp1
@@ -19,7 +21,7 @@ namespace WindowsFormsApp1
             path = Path;
         }
 
-        public void StartParseExcel()
+        public System.Windows.Forms.DataGridView StartParseExcel(System.Windows.Forms.DataGridView dataGridView)
         {
             Application xlApp = new Application();
 
@@ -43,10 +45,10 @@ namespace WindowsFormsApp1
             Range columnRange = xlWorkSheet.UsedRange;
             int columnsCount  = columnRange.Columns.Count;
             int rowsCount = columnRange.Rows.Count;
-            GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount);
+            return GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount,dataGridView);
         }
 
-        public void GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount)
+        public System.Windows.Forms.DataGridView GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount, System.Windows.Forms.DataGridView dataGridView)
         {
             object[] vs = new object[rowsCount];
             //Range range = sheet.Rows.Item[rows, columns];
@@ -54,10 +56,11 @@ namespace WindowsFormsApp1
             {
                 vs[row-1] = sheet.Rows.EntireRow.Item[row].Value();
             } 
-            foreach(string[,] o in vs)
+                for(int i = 0; i< vs.Length; i++)
             {
-                o[1,1] = vs.GetValue(1).ToString();
+                dataGridView.Rows.Add(vs[i]);
             }
+            return dataGridView;
         }
     }
 }

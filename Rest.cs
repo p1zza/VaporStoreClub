@@ -56,30 +56,30 @@ namespace WindowsFormsApp1
                 wc.Product.Update(product.id.Value, product);
             });
         }
-        async static Task<List<Product>> GetProductsAsync()
-        {
-            for(int i = 0; i<50;i++)
-            {
-                try 
-                {
-                    products.Add(await wc.Product.Get(i));
-                }
-                catch(WebException ex)
-                {
-                    if(ex.Message.Contains("404") == false)
-                    {
-                        MessageBox.Show(Regex.Replace(
-                        ex.Message.ToString(),
-                        @"\\u(?<Value>[a-zA-Z0-9]{4})",
-                        m =>
-                        {
-                            return ((char)int.Parse(m.Groups["Value"].Value, NumberStyles.HexNumber)).ToString();
-                        }));
-                    }
-                }   
-            }
-            return products; 
-        }
+        //async static Task<List<Product>> GetProductsAsync()
+        //{
+        //    for(int i = 0; i<50;i++)
+        //    {
+        //        try 
+        //        {
+        //            products.Add(await wc.Product.Get(i));
+        //        }
+        //        catch(WebException ex)
+        //        {
+        //            if(ex.Message.Contains("404") == false)
+        //            {
+        //                MessageBox.Show(Regex.Replace(
+        //                ex.Message.ToString(),
+        //                @"\\u(?<Value>[a-zA-Z0-9]{4})",
+        //                m =>
+        //                {
+        //                    return ((char)int.Parse(m.Groups["Value"].Value, NumberStyles.HexNumber)).ToString();
+        //                }));
+        //            }
+        //        }   
+        //    }
+        //    return products; 
+        //}
 
         public async static Task<List<Product>> GetAllProducts()
         {
