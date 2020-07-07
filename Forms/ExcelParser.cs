@@ -21,14 +21,13 @@ namespace WindowsFormsApp1.Forms
         {
             openFileDialog1.ShowDialog();
             label2.Text += openFileDialog1.FileName;
-            GetDataFromExcel(openFileDialog1.FileName);        
+            GetDataFromExcel(openFileDialog1.FileName);
         }
 
         private void GetDataFromExcel(string path)
         {
             Parse parser = new Parse(path);
             parser.StartParseExcel(dataGridView1);
-
         }
     }
 }

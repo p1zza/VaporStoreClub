@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
         public static RestAPI API { get; set; }
         public static WCObject wc { get; set; }
         public static List<Product> products { get; set; }
+        public static List<ProductCategory> categories { get; set; }
 
         public Rest(string key, string secretkey)
         {
@@ -31,6 +32,19 @@ namespace WindowsFormsApp1
         public async static void UpdateById(int ID,Product product)
         {
             await wc.Product.Update(ID, product);
+        }
+
+        public async static Task GetCategoriesAsync()
+        {
+            if(categories == null)
+            {
+                categories = new List<ProductCategory>();
+                categories = await wc.Category.GetAll();
+            }
+            else
+            {
+                categories = await wc.Category.GetAll();
+            }
         }
 
         //private System.Windows.Forms.DataGridViewTextBoxColumn Number_Column;     1

@@ -68,9 +68,16 @@ namespace WindowsFormsApp1
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if(e.ColumnIndex==6)
+            try
             {
-                  Task.Run(async () => { await Rest.UpdateProductFromDataRow(dataGridView1.CurrentRow); }); 
+                if (e.ColumnIndex==6)
+                {
+                      Task.Run(async () => { await Rest.UpdateProductFromDataRow(dataGridView1.CurrentRow); }); 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
             }
         }
     }

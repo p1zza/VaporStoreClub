@@ -24,25 +24,6 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
-
-        private void выбратьФайлToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(FormIsOpen("ExcelParser"))
-            {
-                ExcelParser excelParser = new ExcelParser();
-                excelParser.Show();
-            }
-        }
-
-        private void списокТоваровToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if(FormIsOpen("ParseWindow"))
-            {
-                ParseWindow parseWindow = new ParseWindow();
-                parseWindow.Show();
-            }
-        }
-
         private void аккаунтToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FormIsOpen("AccountInfo"))
@@ -93,6 +74,21 @@ namespace WindowsFormsApp1
             {
                 ExcelParser excelParser = new ExcelParser();
                 excelParser.Show();
+            }
+        }
+
+        private void добавитьТоварToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
+        }
+
+        private void списокТоваровToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("ParseWindow"))
+            {
+                ParseWindow parseWindow = new ParseWindow();
+                parseWindow.Show();
             }
         }
     }
