@@ -39,11 +39,29 @@ namespace WindowsFormsApp1
             if(categories == null)
             {
                 categories = new List<ProductCategory>();
-                categories = await wc.Category.GetAll();
+                int page = 1, perPage = 20;
+                Dictionary<string, string> parameters = new Dictionary<string, string> { { "per_page", perPage.ToString() } };
+                bool hasResults = true;
+                while (hasResults)
+                {
+                    parameters["page"] = (page++).ToString();
+                    var cats = await wc.Category.GetAll(parameters);
+                    categories.AddRange(cats);
+                    hasResults = cats.Count == perPage;
+                }
             }
             else
             {
-                categories = await wc.Category.GetAll();
+                int page = 1, perPage = 20;
+                Dictionary<string, string> parameters = new Dictionary<string, string> { { "per_page", perPage.ToString() } };
+                bool hasResults = true;
+                while (hasResults)
+                {
+                    parameters["page"] = (page++).ToString();
+                    var cats = await wc.Category.GetAll(parameters);
+                    categories.AddRange(cats);
+                    hasResults = cats.Count == perPage;
+                }
             }
         }
 

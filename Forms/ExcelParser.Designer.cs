@@ -37,6 +37,8 @@
             this.Price_Columnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Category_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExcelPatternTextBox = new System.Windows.Forms.TextBox();
+            this.ExcelPatternLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,11 +114,30 @@
             this.Category_Column.Name = "Category_Column";
             this.Category_Column.Width = 85;
             // 
+            // ExcelPatternTextBox
+            // 
+            this.ExcelPatternTextBox.Location = new System.Drawing.Point(796, 37);
+            this.ExcelPatternTextBox.Name = "ExcelPatternTextBox";
+            this.ExcelPatternTextBox.Size = new System.Drawing.Size(100, 20);
+            this.ExcelPatternTextBox.TabIndex = 6;
+            this.ExcelPatternTextBox.Text = "A1:J";
+            // 
+            // ExcelPatternLabel
+            // 
+            this.ExcelPatternLabel.AutoSize = true;
+            this.ExcelPatternLabel.Location = new System.Drawing.Point(538, 40);
+            this.ExcelPatternLabel.Name = "ExcelPatternLabel";
+            this.ExcelPatternLabel.Size = new System.Drawing.Size(252, 13);
+            this.ExcelPatternLabel.TabIndex = 7;
+            this.ExcelPatternLabel.Text = "Введите диапазон шапки таблицы для экспорта";
+            // 
             // ExcelParser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1171, 615);
+            this.Controls.Add(this.ExcelPatternLabel);
+            this.Controls.Add(this.ExcelPatternTextBox);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -127,6 +148,8 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.ExcelPatternTextBox, 0);
+            this.Controls.SetChildIndex(this.ExcelPatternLabel, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,5 +167,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Price_Columnt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_Column;
+        private System.Windows.Forms.TextBox ExcelPatternTextBox;
+        private System.Windows.Forms.Label ExcelPatternLabel;
     }
 }

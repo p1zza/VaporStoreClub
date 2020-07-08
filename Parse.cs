@@ -14,19 +14,33 @@ namespace WindowsFormsApp1
     class Parse
     {
         private string path;
-        
+        private static Application xlApp;
+        private static Workbook xlWorkBook;
+        private static Worksheet xlWorkSheet;
+
         public Parse(string Path)
         {
             path = Path;
         }
 
-        public System.Windows.Forms.DataGridView StartParseExcel(System.Windows.Forms.DataGridView dataGridView)
+        public static void CloseExcel()
+        {
+            if(xlWorkBook != null)
+            {
+                xlWorkBook.Close(false);
+            }
+            if(xlApp !=null)
+            {
+                xlApp.Quit();
+            } 
+        }
+
+        public System.Windows.Forms.DataGridView StartParseExcel(System.Windows.Forms.DataGridView dataGridView,string pattern)
         {
             try
             {
-                Application xlApp = new Application();
-
-                Workbook xlWorkBook = xlApp.Workbooks.Open(path, 
+                xlApp = new Application();
+                xlWorkBook = xlApp.Workbooks.Open(path, 
                     UpdateLinks: 0, 
                     ReadOnly: true, 
                     Format: 5,
@@ -42,27 +56,26 @@ namespace WindowsFormsApp1
                     Local: false, 
                     CorruptLoad: false);
 
-                Worksheet xlWorkSheet = xlWorkBook.Worksheets.Item[1];
+                xlWorkSheet = xlWorkBook.Worksheets.Item[1];
             
                 Range columnRange = xlWorkSheet.UsedRange;
                 int columnsCount  = columnRange.Columns.Count;
                 int rowsCount = columnRange.Rows.Count;
-                return GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount, dataGridView);
+                return GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount, dataGridView,pattern);
             }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
             }
             return null;
-
         }
 
-        public System.Windows.Forms.DataGridView GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount, System.Windows.Forms.DataGridView dataGridView)
+        public System.Windows.Forms.DataGridView GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount, System.Windows.Forms.DataGridView dataGridView, string pattern)
         {
             try
             {
                 int iLastRow = sheet.Cells[sheet.Rows.Count, "A"].End[Microsoft.Office.Interop.Excel.XlDirection.xlUp].Row;  //последняя заполненная строка в столбце А            
-                var arrData = (object[,])sheet.Range["A1:J" + iLastRow].Value; //берём данные с листа Excel
+                var arrData = (object[,])sheet.Range[pattern + iLastRow].Value; //берём данные с листа Excel
 
                 //настройка DataGridView
                 dataGridView.Rows.Clear();

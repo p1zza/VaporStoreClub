@@ -88,6 +88,7 @@
             this.ClearTextBoxButton.TabIndex = 1;
             this.ClearTextBoxButton.Text = " Очистить поля";
             this.ClearTextBoxButton.UseVisualStyleBackColor = true;
+            this.ClearTextBoxButton.Click += new System.EventHandler(this.ClearTextBoxButton_Click);
             // 
             // ProductNameLabel
             // 
@@ -147,6 +148,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductNameTextBox.Location = new System.Drawing.Point(391, 3);
+            this.ProductNameTextBox.MaxLength = 120;
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.Size = new System.Drawing.Size(382, 20);
             this.ProductNameTextBox.TabIndex = 6;
@@ -157,6 +159,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductPriceTextBox.Location = new System.Drawing.Point(391, 41);
+            this.ProductPriceTextBox.MaxLength = 5;
             this.ProductPriceTextBox.Name = "ProductPriceTextBox";
             this.ProductPriceTextBox.Size = new System.Drawing.Size(382, 20);
             this.ProductPriceTextBox.TabIndex = 7;
@@ -167,6 +170,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ProductAmountTextBox.Location = new System.Drawing.Point(391, 79);
+            this.ProductAmountTextBox.MaxLength = 3;
             this.ProductAmountTextBox.Name = "ProductAmountTextBox";
             this.ProductAmountTextBox.Size = new System.Drawing.Size(382, 20);
             this.ProductAmountTextBox.TabIndex = 8;

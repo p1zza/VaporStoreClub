@@ -27,7 +27,8 @@ namespace WindowsFormsApp1.Forms
         private void GetDataFromExcel(string path)
         {
             Parse parser = new Parse(path);
-            parser.StartParseExcel(dataGridView1);
+            parser.StartParseExcel(dataGridView1,ExcelPatternTextBox.Text);
+            Parse.CloseExcel();
         }
     }
 }
