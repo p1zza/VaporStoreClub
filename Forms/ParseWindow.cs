@@ -24,7 +24,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                Rest r = new Rest(Forms.AccountInfo.consumer_key, Forms.AccountInfo.consumer_secret);
+                Rest r = new Rest(Forms.AccountInfo.RestApiLink, Forms.AccountInfo.consumer_key, Forms.AccountInfo.consumer_secret);
                 List<Product> products = new List<Product>();
                 Task t = Task.Factory.StartNew(async () =>
                 {

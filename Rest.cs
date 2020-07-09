@@ -1,11 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,10 +21,26 @@ namespace WindowsFormsApp1
         public static List<Product> products { get; set; }
         public static List<ProductCategory> categories { get; set; }
 
-        public Rest(string key, string secretkey)
+        public Rest(string RestApiLink, string key, string secretkey)
         {
-            API = new RestAPI(@"http://armamivape.ru/wp-json/wc/v3", key, secretkey);
-            wc = new WCObject(API);
+            try
+            {
+                API = new RestAPI(RestApiLink, key, secretkey);
+                wc = new WCObject(API);
+            }
+            catch (WebException ex)
+            {
+                if (ex.Message.Contains("404") == false)
+                {
+                    MessageBox.Show(Regex.Replace(
+                    ex.Message.ToString(),
+                    @"\\u(?<Value>[a-zA-Z0-9]{4})",
+                    m =>
+                    {
+                        return ((char)int.Parse(m.Groups["Value"].Value, NumberStyles.HexNumber)).ToString();
+                    }));
+                }
+            }
         }
 
         public async static void UpdateById(int ID,Product product)

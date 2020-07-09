@@ -19,16 +19,48 @@ namespace WindowsFormsApp1.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            label2.Text += openFileDialog1.FileName;
-            GetDataFromExcel(openFileDialog1.FileName);
+            try
+            {
+                openFileDialog1.ShowDialog();
+                label2.Text += openFileDialog1.FileName;
+                GetDataFromExcel(openFileDialog1.FileName);
+            }
+            catch(Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         private void GetDataFromExcel(string path)
         {
-            Parse parser = new Parse(path);
-            parser.StartParseExcel(dataGridView1,ExcelPatternTextBox.Text);
-            Parse.CloseExcel();
+            try
+            {
+                Task.Run(() => {
+                Parse parser = new Parse(path);
+                if (InvokeRequired)
+                {
+                    Invoke((Action)(
+                        () =>
+                        {
+                            parser.StartParseExcel(dataGridView1, ExcelPatternTextBox.Text);
+                        }));
+                }
+                else
+                {
+                    parser.StartParseExcel(dataGridView1, ExcelPatternTextBox.Text);
+                }
+                Parse.CloseExcel();
+            });
+            }
+            catch(Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void ExcelParser_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.Forms
             InitializeComponent();
             if (Rest.wc == null)
             {
-                Rest r = new Rest(Forms.AccountInfo.consumer_key, Forms.AccountInfo.consumer_secret);
+                Rest r = new Rest(Forms.AccountInfo.RestApiLink, Forms.AccountInfo.consumer_key, Forms.AccountInfo.consumer_secret);
             }
         }
         private void AppendProductButton_Click(object sender, EventArgs e)

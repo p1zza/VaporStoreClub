@@ -33,9 +33,9 @@
             this.файлДляЭкспортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.посмотретьТаблицуЭкспортаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокТоваровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.аккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьТоварToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.списокТоваровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.аккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,25 +73,18 @@
             // посмотретьТаблицуЭкспортаToolStripMenuItem
             // 
             this.посмотретьТаблицуЭкспортаToolStripMenuItem.Name = "посмотретьТаблицуЭкспортаToolStripMenuItem";
-            this.посмотретьТаблицуЭкспортаToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
-            this.посмотретьТаблицуЭкспортаToolStripMenuItem.Text = "Посмотреть таблицу экспорта";
+            this.посмотретьТаблицуЭкспортаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.посмотретьТаблицуЭкспортаToolStripMenuItem.Text = "Таблица экспорта";
             this.посмотретьТаблицуЭкспортаToolStripMenuItem.Click += new System.EventHandler(this.посмотретьТаблицуЭкспортаToolStripMenuItem_Click);
             // 
             // списокТоваровToolStripMenuItem
             // 
             this.списокТоваровToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьТоварToolStripMenuItem,
-            this.списокТоваровToolStripMenuItem1});
+            this.списокТоваровToolStripMenuItem1,
+            this.добавитьТоварToolStripMenuItem});
             this.списокТоваровToolStripMenuItem.Name = "списокТоваровToolStripMenuItem";
             this.списокТоваровToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.списокТоваровToolStripMenuItem.Text = "Товары";
-            // 
-            // аккаунтToolStripMenuItem
-            // 
-            this.аккаунтToolStripMenuItem.Name = "аккаунтToolStripMenuItem";
-            this.аккаунтToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.аккаунтToolStripMenuItem.Text = "Аккаунт";
-            this.аккаунтToolStripMenuItem.Click += new System.EventHandler(this.аккаунтToolStripMenuItem_Click);
             // 
             // добавитьТоварToolStripMenuItem
             // 
@@ -106,6 +99,13 @@
             this.списокТоваровToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.списокТоваровToolStripMenuItem1.Text = "Список товаров";
             this.списокТоваровToolStripMenuItem1.Click += new System.EventHandler(this.списокТоваровToolStripMenuItem1_Click);
+            // 
+            // аккаунтToolStripMenuItem
+            // 
+            this.аккаунтToolStripMenuItem.Name = "аккаунтToolStripMenuItem";
+            this.аккаунтToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.аккаунтToolStripMenuItem.Text = "Аккаунт";
+            this.аккаунтToolStripMenuItem.Click += new System.EventHandler(this.аккаунтToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

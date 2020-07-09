@@ -32,11 +32,13 @@
             this.OpenKeyTextBox = new System.Windows.Forms.TextBox();
             this.OpenKeyLabel = new System.Windows.Forms.Label();
             this.SecretKeyLabel = new System.Windows.Forms.Label();
+            this.RestApiTextBox = new System.Windows.Forms.TextBox();
+            this.RestApiLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SecretKeyTextBox
             // 
-            this.SecretKeyTextBox.Location = new System.Drawing.Point(245, 114);
+            this.SecretKeyTextBox.Location = new System.Drawing.Point(245, 144);
             this.SecretKeyTextBox.Name = "SecretKeyTextBox";
             this.SecretKeyTextBox.Size = new System.Drawing.Size(406, 20);
             this.SecretKeyTextBox.TabIndex = 3;
@@ -44,7 +46,7 @@
             // 
             // OpenKeyTextBox
             // 
-            this.OpenKeyTextBox.Location = new System.Drawing.Point(245, 88);
+            this.OpenKeyTextBox.Location = new System.Drawing.Point(245, 118);
             this.OpenKeyTextBox.Name = "OpenKeyTextBox";
             this.OpenKeyTextBox.Size = new System.Drawing.Size(406, 20);
             this.OpenKeyTextBox.TabIndex = 4;
@@ -53,7 +55,7 @@
             // OpenKeyLabel
             // 
             this.OpenKeyLabel.AutoSize = true;
-            this.OpenKeyLabel.Location = new System.Drawing.Point(92, 95);
+            this.OpenKeyLabel.Location = new System.Drawing.Point(92, 125);
             this.OpenKeyLabel.Name = "OpenKeyLabel";
             this.OpenKeyLabel.Size = new System.Drawing.Size(87, 13);
             this.OpenKeyLabel.TabIndex = 5;
@@ -62,17 +64,35 @@
             // SecretKeyLabel
             // 
             this.SecretKeyLabel.AutoSize = true;
-            this.SecretKeyLabel.Location = new System.Drawing.Point(92, 121);
+            this.SecretKeyLabel.Location = new System.Drawing.Point(92, 151);
             this.SecretKeyLabel.Name = "SecretKeyLabel";
             this.SecretKeyLabel.Size = new System.Drawing.Size(87, 13);
             this.SecretKeyLabel.TabIndex = 6;
             this.SecretKeyLabel.Text = "Закрытый ключ";
+            // 
+            // RestApiTextBox
+            // 
+            this.RestApiTextBox.Location = new System.Drawing.Point(245, 92);
+            this.RestApiTextBox.Name = "RestApiTextBox";
+            this.RestApiTextBox.Size = new System.Drawing.Size(406, 20);
+            this.RestApiTextBox.TabIndex = 7;
+            // 
+            // RestApiLabel
+            // 
+            this.RestApiLabel.AutoSize = true;
+            this.RestApiLabel.Location = new System.Drawing.Point(92, 95);
+            this.RestApiLabel.Name = "RestApiLabel";
+            this.RestApiLabel.Size = new System.Drawing.Size(113, 13);
+            this.RestApiLabel.TabIndex = 8;
+            this.RestApiLabel.Text = "Ссылка на REST API";
             // 
             // AccountInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.RestApiLabel);
+            this.Controls.Add(this.RestApiTextBox);
             this.Controls.Add(this.SecretKeyLabel);
             this.Controls.Add(this.OpenKeyLabel);
             this.Controls.Add(this.OpenKeyTextBox);
@@ -84,6 +104,8 @@
             this.Controls.SetChildIndex(this.OpenKeyTextBox, 0);
             this.Controls.SetChildIndex(this.OpenKeyLabel, 0);
             this.Controls.SetChildIndex(this.SecretKeyLabel, 0);
+            this.Controls.SetChildIndex(this.RestApiTextBox, 0);
+            this.Controls.SetChildIndex(this.RestApiLabel, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +117,7 @@
         private System.Windows.Forms.TextBox OpenKeyTextBox;
         private System.Windows.Forms.Label OpenKeyLabel;
         private System.Windows.Forms.Label SecretKeyLabel;
+        private System.Windows.Forms.TextBox RestApiTextBox;
+        private System.Windows.Forms.Label RestApiLabel;
     }
 }
