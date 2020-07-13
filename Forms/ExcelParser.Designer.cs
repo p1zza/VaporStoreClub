@@ -28,11 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.First_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Second_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Third_Columnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fourth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fifth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sixth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Seventh_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eighth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExcelPatternTextBox = new System.Windows.Forms.TextBox();
             this.ExcelPatternLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,14 +60,6 @@
             this.SixthColumnLabel = new System.Windows.Forms.Label();
             this.SeventhColumnLabel = new System.Windows.Forms.Label();
             this.EighthColumnLabel = new System.Windows.Forms.Label();
-            this.First_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Second_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Third_Columnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fourth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fifth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sixth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Seventh_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eighth_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExportAmountLabel = new System.Windows.Forms.Label();
             this.ExportAmountTextbox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -100,14 +100,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.First_Column,
@@ -122,6 +122,62 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(924, 496);
             this.dataGridView1.TabIndex = 5;
+            // 
+            // First_Column
+            // 
+            this.First_Column.HeaderText = "Первый столбец";
+            this.First_Column.Name = "First_Column";
+            this.First_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.First_Column.Width = 87;
+            // 
+            // Second_Column
+            // 
+            this.Second_Column.HeaderText = "Второй столбец";
+            this.Second_Column.Name = "Second_Column";
+            this.Second_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Second_Column.Width = 84;
+            // 
+            // Third_Columnt
+            // 
+            this.Third_Columnt.HeaderText = "Третий столбец";
+            this.Third_Columnt.Name = "Third_Columnt";
+            this.Third_Columnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Third_Columnt.Width = 84;
+            // 
+            // Fourth_Column
+            // 
+            this.Fourth_Column.HeaderText = "Четвертый столбец";
+            this.Fourth_Column.Name = "Fourth_Column";
+            this.Fourth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Fourth_Column.Width = 102;
+            // 
+            // Fifth_Column
+            // 
+            this.Fifth_Column.HeaderText = "Пятый столбец";
+            this.Fifth_Column.Name = "Fifth_Column";
+            this.Fifth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Fifth_Column.Width = 81;
+            // 
+            // Sixth_Column
+            // 
+            this.Sixth_Column.HeaderText = "Шестой столбец";
+            this.Sixth_Column.Name = "Sixth_Column";
+            this.Sixth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Sixth_Column.Width = 86;
+            // 
+            // Seventh_Column
+            // 
+            this.Seventh_Column.HeaderText = "Седьмой столбец";
+            this.Seventh_Column.Name = "Seventh_Column";
+            this.Seventh_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Seventh_Column.Width = 92;
+            // 
+            // Eighth_Column
+            // 
+            this.Eighth_Column.HeaderText = "Восьмой столбец";
+            this.Eighth_Column.Name = "Eighth_Column";
+            this.Eighth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Eighth_Column.Width = 92;
             // 
             // ExcelPatternTextBox
             // 
@@ -374,62 +430,6 @@
             this.EighthColumnLabel.TabIndex = 15;
             this.EighthColumnLabel.Text = "Понять восьмую колонку как";
             // 
-            // First_Column
-            // 
-            this.First_Column.HeaderText = "Первый столбец";
-            this.First_Column.Name = "First_Column";
-            this.First_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.First_Column.Width = 87;
-            // 
-            // Second_Column
-            // 
-            this.Second_Column.HeaderText = "Второй столбец";
-            this.Second_Column.Name = "Second_Column";
-            this.Second_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Second_Column.Width = 84;
-            // 
-            // Third_Columnt
-            // 
-            this.Third_Columnt.HeaderText = "Третий столбец";
-            this.Third_Columnt.Name = "Third_Columnt";
-            this.Third_Columnt.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Third_Columnt.Width = 84;
-            // 
-            // Fourth_Column
-            // 
-            this.Fourth_Column.HeaderText = "Четвертый столбец";
-            this.Fourth_Column.Name = "Fourth_Column";
-            this.Fourth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Fourth_Column.Width = 102;
-            // 
-            // Fifth_Column
-            // 
-            this.Fifth_Column.HeaderText = "Пятый столбец";
-            this.Fifth_Column.Name = "Fifth_Column";
-            this.Fifth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Fifth_Column.Width = 81;
-            // 
-            // Sixth_Column
-            // 
-            this.Sixth_Column.HeaderText = "Шестой столбец";
-            this.Sixth_Column.Name = "Sixth_Column";
-            this.Sixth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Sixth_Column.Width = 86;
-            // 
-            // Seventh_Column
-            // 
-            this.Seventh_Column.HeaderText = "Седьмой столбец";
-            this.Seventh_Column.Name = "Seventh_Column";
-            this.Seventh_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Seventh_Column.Width = 92;
-            // 
-            // Eighth_Column
-            // 
-            this.Eighth_Column.HeaderText = "Восьмой столбец";
-            this.Eighth_Column.Name = "Eighth_Column";
-            this.Eighth_Column.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Eighth_Column.Width = 92;
-            // 
             // ExportAmountLabel
             // 
             this.ExportAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -484,6 +484,7 @@
             this.BeginExportButton.TabIndex = 13;
             this.BeginExportButton.Text = "Начать экспорт";
             this.BeginExportButton.UseVisualStyleBackColor = true;
+            this.BeginExportButton.Click += new System.EventHandler(this.BeginExportButton_Click);
             // 
             // ExcelParser
             // 

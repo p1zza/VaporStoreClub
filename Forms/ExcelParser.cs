@@ -62,5 +62,52 @@ namespace WindowsFormsApp1.Forms
         {
 
         }
+
+        private void BeginExportButton_Click(object sender, EventArgs e)
+        {
+
+            //dataGridView1.Columns[1]
+        }
+
+
+
+
+        private void GetPatternByCombobox(ComboBox comboBox)
+        {
+            //Порядковый номер
+            //Наименование
+            //Цена
+            //Кол - во
+            //Категория
+            //Пропустить
+
+            switch (comboBox.SelectedItem.ToString())
+            {
+                case "Порядковый номер":
+                    {
+                        break;
+                    }
+                case "Наименование":
+                    {
+                        break;
+                    }
+                case "Цена":
+                    {
+                        break;
+                    }
+                case "Кол - во":
+                    {
+                        break;
+                    }
+                case "Категория":
+                    {
+                        break;
+                    }
+                case "Пропустить":
+                    {
+                        break;
+                    }
+            }
+        }
     }
 }
