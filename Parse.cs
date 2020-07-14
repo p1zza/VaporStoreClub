@@ -7,17 +7,18 @@ using System.Runtime.InteropServices;
 using WindowsFormsApp1.Forms;
 using Microsoft.Office.Interop.Excel;
 using WooCommerceNET.WooCommerce.v3;
-
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     class Parse
     {
         private string path;
-        private static Application xlApp;
-        private static Workbook xlWorkBook;
-        private static Worksheet xlWorkSheet;
+        private static Microsoft.Office.Interop.Excel.Application xlApp { get; set; }
+        private static Workbook xlWorkBook { get; set; }
+        private static Worksheet xlWorkSheet { get; set; }
 
+        //public static RestAPI API { get; set; }
         public Parse(string Path)
         {
             path = Path;
@@ -39,7 +40,7 @@ namespace WindowsFormsApp1
         {
             try
             {
-                xlApp = new Application();
+                xlApp = new Microsoft.Office.Interop.Excel.Application();
                 xlWorkBook = xlApp.Workbooks.Open(path, 
                     UpdateLinks: 0, 
                     ReadOnly: true, 
@@ -101,20 +102,93 @@ namespace WindowsFormsApp1
             }
 
             return dataGridView;
-            //for(int row = 1; row < rowsCount; row++)
-            //{
-            //    dataGridView.Rows.Insert(row-1, sheet.Rows.EntireRow.Item[row].Value());
-            //    //vs[row-1] = sheet.Rows.EntireRow.Item[row].Value();
-            //} 
-            //for(int i = 0; i< vs.Length; i++)
-            //{
-            //    foreach(var s in vs.ToList())
-            //    {
-            //        dataGridView.Rows.Insert(i,s);
-            //        dataGridView.Rows.Add(s);
-            //    }
-            //}
-
         }
+
+        public static void PutDataInDictionary(DataGridViewRowCollection Rows, int column, string pattern)
+        {
+            switch (pattern)
+            {
+                case "Порядковый номер":
+                    {
+                       
+                        break;
+                    }
+                case "Наименование":
+                    {
+                        break;
+                    }
+                case "Цена":
+                    {
+                        break;
+                    }
+                case "Кол - во":
+                    {
+                        break;
+                    }
+                case "Категория":
+                    {
+                        break;
+                    }
+                case "Пропустить":
+                    {
+                        break;
+                    }
+            }
+            foreach (DataGridViewRow row in Rows)
+            {
+                for(int i =0; i<Rows.Count; i++)
+                {
+                    Rows[i].Cells[column].Value;
+                }
+
+                
+                //Rows.Cast<DataGridViewCell>().ToList();
+
+                //if (object.Equals(row.Cells.GetCellValueFromColumnHeader(pattern), pattern))
+                //{
+
+                //    // ...
+                //}
+            }
+        }
+
+
+
+    }
+
+    class RawProduct
+    {
+        private static Dictionary<int,string> ProductNames { get; set; }
+        private static Dictionary<int, int?> ProductPrice { get; set; }
+        private static Dictionary<int, int?> ProductStockQuantity { get; set; }
+        private static Dictionary<int, ProductCategoryLine> ProductCategory { get; set; }
+        RawProduct()
+        {
+            ProductNames = new Dictionary<int, string>();
+            ProductPrice = new Dictionary<int, int?>();
+            ProductStockQuantity = new Dictionary<int, int?>();
+            ProductCategory = new Dictionary<int, ProductCategoryLine>();
+        }
+
+        private void AddName(int id, string name)
+        {
+            ProductNames.Add(id, name);
+        }
+
+        private void AddPrice(int id, int? price)
+        {
+            ProductPrice.Add(id, price);
+        }
+
+        private void AddStockQuantity(int id, int? value)
+        {
+            ProductStockQuantity.Add(id, value);
+        }
+
+        private void AddCategory (int id, ProductCategoryLine categoryLine)
+        {
+            throw new Exception("Не обработано");
+        }
+
     }
 }

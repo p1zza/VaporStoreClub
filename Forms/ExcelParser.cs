@@ -17,6 +17,11 @@ namespace WindowsFormsApp1.Forms
             InitializeComponent();
         }
 
+        enum MyEnum
+        {
+            //TODO
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -27,7 +32,7 @@ namespace WindowsFormsApp1.Forms
             }
             catch(Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -54,7 +59,7 @@ namespace WindowsFormsApp1.Forms
             }
             catch(Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 
@@ -65,14 +70,20 @@ namespace WindowsFormsApp1.Forms
 
         private void BeginExportButton_Click(object sender, EventArgs e)
         {
+            GetPatternByCombobox(FirstComboBox,     0);
+            GetPatternByCombobox(SecondComboBox,    1);
+            GetPatternByCombobox(ThirdComboBox,     2);
+            GetPatternByCombobox(FourthComboBox,    3);
+            GetPatternByCombobox(FifthComboBox,     4);
+            GetPatternByCombobox(SixthComboBox,     5);
+            GetPatternByCombobox(SeventhComboBox,   6);
+            GetPatternByCombobox(EighthComboBox,    7);
 
             //dataGridView1.Columns[1]
         }
 
 
-
-
-        private void GetPatternByCombobox(ComboBox comboBox)
+        private void GetPatternByCombobox(ComboBox comboBox,int column)
         {
             //Порядковый номер
             //Наименование
@@ -85,6 +96,10 @@ namespace WindowsFormsApp1.Forms
             {
                 case "Порядковый номер":
                     {
+                        Parse.PutDataInDictionary(dataGridView1.Rows, column, "Порядковый номер");
+                        //var d = dataGridView1.Rows[0].Cells[0].Value;
+                        //var s = dataGridView1.Rows;
+                        //Parse.PutDataInDictionary(s, "Порядковый номер");
                         break;
                     }
                 case "Наименование":
