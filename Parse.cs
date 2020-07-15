@@ -18,6 +18,7 @@ namespace WindowsFormsApp1
         private static Workbook xlWorkBook { get; set; }
         private static Worksheet xlWorkSheet { get; set; }
 
+        public static RawProduct raw { get; set; }
         //public static RestAPI API { get; set; }
         public Parse(string Path)
         {
@@ -104,25 +105,62 @@ namespace WindowsFormsApp1
             return dataGridView;
         }
 
+
+        public static void GetData(RawProduct raw)
+        {
+            var s = raw.GetProductNames();
+            var d = raw.GetProductPrice();
+            var n = raw.GetStickQuantity();
+        }
+
         public static void PutDataInDictionary(DataGridViewRowCollection Rows, int column, string pattern)
         {
             switch (pattern)
             {
                 case "Порядковый номер":
                     {
-                       
                         break;
                     }
                 case "Наименование":
                     {
+                        for (int i = 0; i < Rows.Count; i++)
+                        {
+                            raw.AddName(i, Rows[i].Cells[column].Value.ToString());
+                        }
                         break;
                     }
                 case "Цена":
                     {
+                        for (int i = 0; i < Rows.Count; i++)
+                        {
+                            double result = 0;
+                            if (double.TryParse(Rows[i].Cells[column].Value.ToString(), out result))
+                            {
+                                result = Math.Truncate(result);
+                                
+                                raw.AddPrice(i, result.ToInt32());
+                            }
+                            else
+                            {
+                                raw.AddPrice(i, null);
+                            }
+                        }
                         break;
                     }
-                case "Кол - во":
+                case "Кол-во":
                     {
+                        for (int i = 0; i < Rows.Count; i++)
+                        {
+                            int result = 0;
+                            if (int.TryParse(Rows[i].Cells[column].Value.ToString(), out result))
+                            {
+                                raw.AddStockQuantity(i, result);
+                            }
+                            else
+                            {
+                                raw.AddStockQuantity(i, result);
+                            }
+                        }
                         break;
                     }
                 case "Категория":
@@ -134,61 +172,6 @@ namespace WindowsFormsApp1
                         break;
                     }
             }
-            foreach (DataGridViewRow row in Rows)
-            {
-                for(int i =0; i<Rows.Count; i++)
-                {
-                    Rows[i].Cells[column].Value;
-                }
-
-                
-                //Rows.Cast<DataGridViewCell>().ToList();
-
-                //if (object.Equals(row.Cells.GetCellValueFromColumnHeader(pattern), pattern))
-                //{
-
-                //    // ...
-                //}
-            }
         }
-
-
-
-    }
-
-    class RawProduct
-    {
-        private static Dictionary<int,string> ProductNames { get; set; }
-        private static Dictionary<int, int?> ProductPrice { get; set; }
-        private static Dictionary<int, int?> ProductStockQuantity { get; set; }
-        private static Dictionary<int, ProductCategoryLine> ProductCategory { get; set; }
-        RawProduct()
-        {
-            ProductNames = new Dictionary<int, string>();
-            ProductPrice = new Dictionary<int, int?>();
-            ProductStockQuantity = new Dictionary<int, int?>();
-            ProductCategory = new Dictionary<int, ProductCategoryLine>();
-        }
-
-        private void AddName(int id, string name)
-        {
-            ProductNames.Add(id, name);
-        }
-
-        private void AddPrice(int id, int? price)
-        {
-            ProductPrice.Add(id, price);
-        }
-
-        private void AddStockQuantity(int id, int? value)
-        {
-            ProductStockQuantity.Add(id, value);
-        }
-
-        private void AddCategory (int id, ProductCategoryLine categoryLine)
-        {
-            throw new Exception("Не обработано");
-        }
-
-    }
+    } 
 }

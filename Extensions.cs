@@ -15,6 +15,11 @@ namespace WindowsFormsApp1
         {
             return CellCollection.Cast<DataGridViewCell>().First(c => c.OwningColumn.HeaderText == HeaderText).Value;
         }
+
+        public static int ToInt32(this Double DoubleValue)
+        {
+            return Convert.ToInt32(DoubleValue);
+        }
         
     }
 }

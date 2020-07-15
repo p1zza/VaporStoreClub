@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsFormsApp1.Forms;
 using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v3;
 
@@ -101,6 +102,36 @@ namespace WindowsFormsApp1
                 product.manage_stock = true;
                 wc.Product.Update(product.id.Value, product);
             });
+        }
+
+        public static async Task AddProductFromRaw(RawProduct raw,int count)
+        {
+            List<string> ProductName = new List<string>();
+            List<int?> ProductPrice = new List<int?>();
+            List<int?> ProductStock = new List<int?>();
+            foreach(string value in RawProduct.ProductNames.Values)
+            {
+                ProductName.Add(value);
+            }
+            foreach (int? value in RawProduct.ProductPrices.Values)
+            {
+                ProductPrice.Add(value);
+            }
+            foreach (int? value in RawProduct.ProductStockQuantity.Values)
+            {
+                ProductStock.Add(value);
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                Product product = new Product();
+                product.name = ProductName[i];
+                product.regular_price = ProductPrice[i];
+                product.manage_stock = true;
+                product.stock_quantity = ProductStock[i];
+                await Rest.wc.Product.Add(product);
+            }
+            
         }
         //async static Task<List<Product>> GetProductsAsync()
         //{

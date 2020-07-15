@@ -65,6 +65,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.ExportProgressBar = new System.Windows.Forms.ProgressBar();
             this.BeginExportButton = new System.Windows.Forms.Button();
+            this.SaveToExcelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -438,7 +439,7 @@
             this.ExportAmountLabel.AutoSize = true;
             this.ExportAmountLabel.Location = new System.Drawing.Point(3, 0);
             this.ExportAmountLabel.Name = "ExportAmountLabel";
-            this.ExportAmountLabel.Size = new System.Drawing.Size(194, 16);
+            this.ExportAmountLabel.Size = new System.Drawing.Size(194, 17);
             this.ExportAmountLabel.TabIndex = 9;
             this.ExportAmountLabel.Text = "Сколько записей экспортировать?";
             // 
@@ -447,7 +448,7 @@
             this.ExportAmountTextbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ExportAmountTextbox.Location = new System.Drawing.Point(3, 19);
+            this.ExportAmountTextbox.Location = new System.Drawing.Point(3, 20);
             this.ExportAmountTextbox.MaxLength = 4;
             this.ExportAmountTextbox.Name = "ExportAmountTextbox";
             this.ExportAmountTextbox.Size = new System.Drawing.Size(194, 20);
@@ -461,12 +462,14 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.ExportAmountTextbox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.ExportAmountLabel, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(959, 401);
+            this.tableLayoutPanel2.Controls.Add(this.SaveToExcelButton, 0, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(959, 391);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 39.58333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60.41667F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 42);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 72);
             this.tableLayoutPanel2.TabIndex = 11;
             // 
             // ExportProgressBar
@@ -478,13 +481,23 @@
             // 
             // BeginExportButton
             // 
-            this.BeginExportButton.Location = new System.Drawing.Point(959, 449);
+            this.BeginExportButton.Location = new System.Drawing.Point(959, 469);
             this.BeginExportButton.Name = "BeginExportButton";
-            this.BeginExportButton.Size = new System.Drawing.Size(200, 154);
+            this.BeginExportButton.Size = new System.Drawing.Size(200, 134);
             this.BeginExportButton.TabIndex = 13;
             this.BeginExportButton.Text = "Начать экспорт";
             this.BeginExportButton.UseVisualStyleBackColor = true;
             this.BeginExportButton.Click += new System.EventHandler(this.BeginExportButton_Click);
+            // 
+            // SaveToExcelButton
+            // 
+            this.SaveToExcelButton.Location = new System.Drawing.Point(3, 46);
+            this.SaveToExcelButton.Name = "SaveToExcelButton";
+            this.SaveToExcelButton.Size = new System.Drawing.Size(194, 23);
+            this.SaveToExcelButton.TabIndex = 11;
+            this.SaveToExcelButton.Text = "Сохранить в .xlsx";
+            this.SaveToExcelButton.UseVisualStyleBackColor = true;
+            this.SaveToExcelButton.Click += new System.EventHandler(this.SaveToExcelButton_Click);
             // 
             // ExcelParser
             // 
@@ -501,6 +514,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximizeBox = false;
             this.Name = "ExcelParser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExcelParser";
@@ -562,5 +576,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ProgressBar ExportProgressBar;
         private System.Windows.Forms.Button BeginExportButton;
+        private System.Windows.Forms.Button SaveToExcelButton;
     }
 }
