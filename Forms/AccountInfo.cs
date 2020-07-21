@@ -12,22 +12,37 @@ namespace WindowsFormsApp1.Forms
 {
     public partial class AccountInfo : MainWindow
     {
-        public static string consumer_secret = "cs_23239244d84a296dbed9cafbac70f3907be4b055";
-        public static string consumer_key = "ck_c2acd179f1c843c2884b62f76a592eeddaf6d71e";
-        public static string RestApiLink = @"http://armamivape.ru/wp-json/wc/v3";
-
         //public static WCObject wc { get; set; }
 
-        public static string _consumer_secret { get;set; }
-        public static string _consumer_key { get; set; }
-        public static string _RestApiLink { get; set; }
+        public static string consumer_secret { get;set; }
+        public static string consumer_key { get; set; }
+        public static string RestApiLink { get; set; }
 
         public AccountInfo()
         {
             InitializeComponent();
-            OpenKeyTextBox.Text = consumer_key;
-            SecretKeyTextBox.Text = consumer_secret;
-            RestApiTextBox.Text = RestApiLink;
+            GetDataFromRegistry();
+        }
+
+        private void AddDataToRegistry_Click(object sender, EventArgs e)
+        {
+            RegistryWorker registryWorker = new RegistryWorker();
+            registryWorker.AddData(OpenKeyTextBox.Text, SecretKeyTextBox.Text, RestApiTextBox.Text);
+        }
+
+        private void UpdateDataFromRegistryButton_Click(object sender, EventArgs e)
+        {
+            RegistryWorker registryWorker = new RegistryWorker();
+            registryWorker.SetData(OpenKeyTextBox.Text, SecretKeyTextBox.Text, RestApiTextBox.Text);
+        }
+
+        private void GetDataFromRegistry()
+        {
+            RegistryWorker registryWorker = new RegistryWorker();
+            string[] vs = registryWorker.GetData();
+            OpenKeyTextBox.Text = vs[0].ToString();
+            SecretKeyTextBox.Text = vs[1].ToString();
+            RestApiTextBox.Text = vs[2].ToString();
         }
     }
 }

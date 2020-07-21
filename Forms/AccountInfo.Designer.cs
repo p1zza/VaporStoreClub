@@ -34,6 +34,8 @@
             this.SecretKeyLabel = new System.Windows.Forms.Label();
             this.RestApiTextBox = new System.Windows.Forms.TextBox();
             this.RestApiLabel = new System.Windows.Forms.Label();
+            this.AddDataToRegistry = new System.Windows.Forms.Button();
+            this.UpdateDataToRegistryButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SecretKeyTextBox
@@ -86,11 +88,33 @@
             this.RestApiLabel.TabIndex = 8;
             this.RestApiLabel.Text = "Ссылка на REST API";
             // 
+            // AddDataToRegistry
+            // 
+            this.AddDataToRegistry.Location = new System.Drawing.Point(387, 206);
+            this.AddDataToRegistry.Name = "AddDataToRegistry";
+            this.AddDataToRegistry.Size = new System.Drawing.Size(264, 23);
+            this.AddDataToRegistry.TabIndex = 9;
+            this.AddDataToRegistry.Text = "Добавить запись в реестр";
+            this.AddDataToRegistry.UseVisualStyleBackColor = true;
+            this.AddDataToRegistry.Click += new System.EventHandler(this.AddDataToRegistry_Click);
+            // 
+            // UpdateDataToRegistryButton
+            // 
+            this.UpdateDataToRegistryButton.Location = new System.Drawing.Point(95, 205);
+            this.UpdateDataToRegistryButton.Name = "UpdateDataToRegistryButton";
+            this.UpdateDataToRegistryButton.Size = new System.Drawing.Size(264, 23);
+            this.UpdateDataToRegistryButton.TabIndex = 10;
+            this.UpdateDataToRegistryButton.Text = "Обноить данные в реестре";
+            this.UpdateDataToRegistryButton.UseVisualStyleBackColor = true;
+            this.UpdateDataToRegistryButton.Click += new System.EventHandler(this.UpdateDataFromRegistryButton_Click);
+            // 
             // AccountInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UpdateDataToRegistryButton);
+            this.Controls.Add(this.AddDataToRegistry);
             this.Controls.Add(this.RestApiLabel);
             this.Controls.Add(this.RestApiTextBox);
             this.Controls.Add(this.SecretKeyLabel);
@@ -106,6 +130,8 @@
             this.Controls.SetChildIndex(this.SecretKeyLabel, 0);
             this.Controls.SetChildIndex(this.RestApiTextBox, 0);
             this.Controls.SetChildIndex(this.RestApiLabel, 0);
+            this.Controls.SetChildIndex(this.AddDataToRegistry, 0);
+            this.Controls.SetChildIndex(this.UpdateDataToRegistryButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,5 +145,7 @@
         private System.Windows.Forms.Label SecretKeyLabel;
         private System.Windows.Forms.TextBox RestApiTextBox;
         private System.Windows.Forms.Label RestApiLabel;
+        private System.Windows.Forms.Button AddDataToRegistry;
+        private System.Windows.Forms.Button UpdateDataToRegistryButton;
     }
 }
