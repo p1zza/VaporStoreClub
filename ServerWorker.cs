@@ -21,7 +21,7 @@ namespace WindowsFormsApp1
             {
                 using (HttpResponseMessage responseMessage = await httpClient.PostAsync(url, httpContent))
                 {
-                    using(HttpContent content = responseMessage.Content.ReadAsBufferAsync)
+                    using(HttpContent content = responseMessage.Content)
                     {
                         string mycontent = await content.ReadAsStringAsync();
                         HttpContentHeaders headers = content.Headers;
