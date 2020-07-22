@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CryptoWorker.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Forms\AccountInfo.cs">
       <SubType>Form</SubType>
@@ -96,6 +98,7 @@
     <Compile Include="RawProduct.cs" />
     <Compile Include="RegistryWorker.cs" />
     <Compile Include="Rest.cs" />
+    <Compile Include="ServerWorker.cs" />
     <EmbeddedResource Include="Forms\AccountInfo.resx">
       <DependentUpon>AccountInfo.cs</DependentUpon>
     </EmbeddedResource>
