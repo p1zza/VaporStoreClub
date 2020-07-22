@@ -58,7 +58,7 @@ jobs:
     env:
       Solution_Name: VaporStoreClub.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: VaporStoreClubUnitTesting.csproj       # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+      Wap_Project_Directory: VaporStoreClub                     # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
@@ -91,7 +91,7 @@ jobs:
     - name: Decode the pfx
       run: |
          $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
+         $certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath MainKey.pfx
          [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
 
     # Create the app package by building and packaging the Windows Application Packaging project
