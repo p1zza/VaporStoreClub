@@ -8,13 +8,13 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Forms;
+using VaporStoreClubNamespace.Forms;
 using WooCommerceNET;
 using WooCommerceNET.Base;
 using WooCommerceNET.WooCommerce.v1;
 //using WooCommerceNET.WooCommerce.Legacy;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     [Serializable]
     public partial class MainWindow : Form
@@ -27,8 +27,10 @@ namespace WindowsFormsApp1
         {
             if (FormIsOpen("AccountInfo"))
             {
-                AccountInfo accountInfo = new AccountInfo();
-                accountInfo.Show();
+                using (AccountInfo accountInfo = new AccountInfo())
+                {
+                    accountInfo.Show();
+                }
             }
         }
 
@@ -71,24 +73,35 @@ namespace WindowsFormsApp1
         {
             if (FormIsOpen("ExcelParser"))
             {
-                ExcelParser excelParser = new ExcelParser();
-                excelParser.Show();
+                using (ExcelParser excelParser = new ExcelParser())
+                {
+                    excelParser.Show();
+                }
             }
         }
 
         private void добавитьТоварToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddProduct addProduct = new AddProduct();
-            addProduct.Show();
+            using (AddProduct addProduct = new AddProduct())
+            {
+                addProduct.Show();
+            }
         }
 
         private void списокТоваровToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (FormIsOpen("ParseWindow"))
             {
-                ParseWindow parseWindow = new ParseWindow();
-                parseWindow.Show();
+                using (ParseWindow parseWindow = new ParseWindow())
+                {
+                    parseWindow.Show();
+                }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

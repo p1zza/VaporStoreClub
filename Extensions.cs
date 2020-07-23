@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WooCommerceNET.WooCommerce.v3;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     public static class Extensions
     {
@@ -24,14 +24,21 @@ namespace WindowsFormsApp1
         }
         public static async Task<string> ReadAsStringUTF8Async(this HttpContent content)
         {
-            return await content.ReadAsStringAsync(Encoding.UTF8);
+            return await content.ReadAsStringAsync(Encoding.UTF8).ConfigureAwait(true);
         }
 
         public static async Task<string> ReadAsStringAsync(this HttpContent content, Encoding encoding)
         {
-            using (var reader = new StreamReader((await content.ReadAsStreamAsync()), encoding))
+            if(content != null)
             {
-                return reader.ReadToEnd();
+                using (var reader = new StreamReader(await content.ReadAsStreamAsync().ConfigureAwait(true), encoding))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+            else
+            {
+                throw new NullReferenceException();
             }
         }
     }

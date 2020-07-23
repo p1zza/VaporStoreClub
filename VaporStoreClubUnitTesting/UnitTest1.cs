@@ -8,7 +8,7 @@ namespace VaporStoreClubUnitTesting
         [Fact]
         public void Test1()
         {
-
+            
         }
     }
 }

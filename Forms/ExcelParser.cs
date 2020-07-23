@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Forms
+namespace VaporStoreClubNamespace.Forms
 {
     public partial class ExcelParser : MainWindow
     {
@@ -19,11 +19,6 @@ namespace WindowsFormsApp1.Forms
             {
                 Rest r = new Rest(Forms.AccountInfo.RestApiLink, Forms.AccountInfo.consumer_key, Forms.AccountInfo.consumer_secret);
             }
-        }
-
-        enum MyEnum
-        {
-            //TODO
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,7 +70,6 @@ namespace WindowsFormsApp1.Forms
         private void BeginExportButton_Click(object sender, EventArgs e)
         {
             StartParsingProcess();
-
         }
 
         private void StartParsingProcess()

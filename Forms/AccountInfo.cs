@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1.Forms
+namespace VaporStoreClubNamespace.Forms
 {
     public partial class AccountInfo : MainWindow
     {
@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.Forms
         private void AddDataToRegistry_Click(object sender, EventArgs e)
         {
             RegistryWorker registryWorker = new RegistryWorker();
-            registryWorker.AddData(OpenKeyTextBox.Text, SecretKeyTextBox.Text, RestApiTextBox.Text);
+            registryWorker.RegisterKeyApi(OpenKeyTextBox.Text, SecretKeyTextBox.Text, RestApiTextBox.Text);
         }
 
         private void UpdateDataFromRegistryButton_Click(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Forms
+﻿namespace VaporStoreClubNamespace.Forms
 {
     partial class ExcelParser
     {

@@ -6,41 +6,42 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     class ServerWorker
     {
-        public async static void PostRequest(string url, string value)
+        //string uripath = @"http://34.69.5.208/";
+        public async static void PostRequest(Uri uri)
         {
             IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
             {
                 new KeyValuePair<string, string> ("key","value")
             };
-            HttpContent httpContent = new FormUrlEncodedContent(queries);
-            using (HttpClient httpClient = new HttpClient())
+            using (HttpContent httpContent = new FormUrlEncodedContent(queries))
             {
-                using (HttpResponseMessage responseMessage = await httpClient.PostAsync(url, httpContent))
+                using (HttpClient httpClient = new HttpClient())
                 {
-                    using(HttpContent content = responseMessage.Content)
+                    using (HttpResponseMessage responseMessage = await httpClient.PostAsync(uri, httpContent).ConfigureAwait(true))
                     {
-                        string mycontent = await content.ReadAsStringAsync();
-                        HttpContentHeaders headers = content.Headers;
+                        using (HttpContent content = responseMessage.Content)
+                        {
+                            string mycontent = await content.ReadAsStringAsync().ConfigureAwait(true);
+                            HttpContentHeaders headers = content.Headers;
+                        }
                     }
                 }
             }
         }
 
-        public async static void GetRequest(string url, string value)
+        public async static Task<string> GetRequest(Uri uri)
         {
             using (HttpClient client = new HttpClient())
             {
-                using(HttpResponseMessage response = await client.GetAsync(url))
+                using (HttpResponseMessage response = await client.GetAsync(uri).ConfigureAwait(true))
                 {
-                    using(HttpContent content = response.Content)
-                    {
-                        string mycontent = await content.ReadAsStringAsync();
-                        HttpContentHeaders headers = content.Headers;
-                        //return mycontent;
+                    using (HttpContent content = response.Content)
+                    {                   
+                        return await content.ReadAsStringAsync().ConfigureAwait(true);
                     }
                 }
             }

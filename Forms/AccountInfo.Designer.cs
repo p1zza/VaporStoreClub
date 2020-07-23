@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.Forms
+﻿namespace VaporStoreClubNamespace.Forms
 {
     partial class AccountInfo
     {
@@ -36,6 +36,10 @@
             this.RestApiLabel = new System.Windows.Forms.Label();
             this.AddDataToRegistry = new System.Windows.Forms.Button();
             this.UpdateDataToRegistryButton = new System.Windows.Forms.Button();
+            this.PostLinkTextBox = new System.Windows.Forms.TextBox();
+            this.GetLinkTextBox = new System.Windows.Forms.TextBox();
+            this.PostLinkLabel = new System.Windows.Forms.Label();
+            this.GetLinkLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SecretKeyTextBox
@@ -90,7 +94,7 @@
             // 
             // AddDataToRegistry
             // 
-            this.AddDataToRegistry.Location = new System.Drawing.Point(387, 206);
+            this.AddDataToRegistry.Location = new System.Drawing.Point(387, 258);
             this.AddDataToRegistry.Name = "AddDataToRegistry";
             this.AddDataToRegistry.Size = new System.Drawing.Size(264, 23);
             this.AddDataToRegistry.TabIndex = 9;
@@ -100,7 +104,7 @@
             // 
             // UpdateDataToRegistryButton
             // 
-            this.UpdateDataToRegistryButton.Location = new System.Drawing.Point(95, 205);
+            this.UpdateDataToRegistryButton.Location = new System.Drawing.Point(95, 257);
             this.UpdateDataToRegistryButton.Name = "UpdateDataToRegistryButton";
             this.UpdateDataToRegistryButton.Size = new System.Drawing.Size(264, 23);
             this.UpdateDataToRegistryButton.TabIndex = 10;
@@ -108,11 +112,47 @@
             this.UpdateDataToRegistryButton.UseVisualStyleBackColor = true;
             this.UpdateDataToRegistryButton.Click += new System.EventHandler(this.UpdateDataFromRegistryButton_Click);
             // 
+            // PostLinkTextBox
+            // 
+            this.PostLinkTextBox.Location = new System.Drawing.Point(245, 171);
+            this.PostLinkTextBox.Name = "PostLinkTextBox";
+            this.PostLinkTextBox.Size = new System.Drawing.Size(406, 20);
+            this.PostLinkTextBox.TabIndex = 11;
+            // 
+            // GetLinkTextBox
+            // 
+            this.GetLinkTextBox.Location = new System.Drawing.Point(245, 197);
+            this.GetLinkTextBox.Name = "GetLinkTextBox";
+            this.GetLinkTextBox.Size = new System.Drawing.Size(406, 20);
+            this.GetLinkTextBox.TabIndex = 12;
+            // 
+            // PostLinkLabel
+            // 
+            this.PostLinkLabel.AutoSize = true;
+            this.PostLinkLabel.Location = new System.Drawing.Point(92, 178);
+            this.PostLinkLabel.Name = "PostLinkLabel";
+            this.PostLinkLabel.Size = new System.Drawing.Size(144, 13);
+            this.PostLinkLabel.TabIndex = 13;
+            this.PostLinkLabel.Text = "Ссылка для POST запроса";
+            // 
+            // GetLinkLabel
+            // 
+            this.GetLinkLabel.AutoSize = true;
+            this.GetLinkLabel.Location = new System.Drawing.Point(92, 204);
+            this.GetLinkLabel.Name = "GetLinkLabel";
+            this.GetLinkLabel.Size = new System.Drawing.Size(137, 13);
+            this.GetLinkLabel.TabIndex = 14;
+            this.GetLinkLabel.Text = "Ссылка для GET запроса";
+            // 
             // AccountInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GetLinkLabel);
+            this.Controls.Add(this.PostLinkLabel);
+            this.Controls.Add(this.GetLinkTextBox);
+            this.Controls.Add(this.PostLinkTextBox);
             this.Controls.Add(this.UpdateDataToRegistryButton);
             this.Controls.Add(this.AddDataToRegistry);
             this.Controls.Add(this.RestApiLabel);
@@ -132,6 +172,10 @@
             this.Controls.SetChildIndex(this.RestApiLabel, 0);
             this.Controls.SetChildIndex(this.AddDataToRegistry, 0);
             this.Controls.SetChildIndex(this.UpdateDataToRegistryButton, 0);
+            this.Controls.SetChildIndex(this.PostLinkTextBox, 0);
+            this.Controls.SetChildIndex(this.GetLinkTextBox, 0);
+            this.Controls.SetChildIndex(this.PostLinkLabel, 0);
+            this.Controls.SetChildIndex(this.GetLinkLabel, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,5 +191,9 @@
         private System.Windows.Forms.Label RestApiLabel;
         private System.Windows.Forms.Button AddDataToRegistry;
         private System.Windows.Forms.Button UpdateDataToRegistryButton;
+        private System.Windows.Forms.TextBox PostLinkTextBox;
+        private System.Windows.Forms.TextBox GetLinkTextBox;
+        private System.Windows.Forms.Label PostLinkLabel;
+        private System.Windows.Forms.Label GetLinkLabel;
     }
 }

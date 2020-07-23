@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using WindowsFormsApp1.Forms;
+using VaporStoreClubNamespace.Forms;
 using Microsoft.Office.Interop.Excel;
 using WooCommerceNET.WooCommerce.v3;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     class Parse
     {
@@ -65,7 +65,11 @@ namespace WindowsFormsApp1
                 int rowsCount = columnRange.Rows.Count;
                 return GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount, dataGridView,pattern);
             }
-            catch (Exception ex)
+            catch(ArgumentNullException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
+            catch (ApplicationException ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
             }

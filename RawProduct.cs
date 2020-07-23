@@ -31,10 +31,10 @@ class RawProduct
         ProductStockQuantity.Add(id, value);
     }
 
-    public void AddCategory(int id, ProductCategoryLine categoryLine)
-    {
-        throw new Exception("Не обработано");
-    }
+    //public void AddCategory(int id, ProductCategoryLine categoryLine)
+    //{
+    //    throw new Exception("Не обработано");
+    //}
 
     public Dictionary<int, string> GetProductNames()
     {

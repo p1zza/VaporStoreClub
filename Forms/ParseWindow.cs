@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WooCommerceNET.WooCommerce.v3;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     public partial class ParseWindow : MainWindow
     {
@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
                 List<Product> products = new List<Product>();
                 Task t = Task.Factory.StartNew(async () =>
                 {
-                    products = await Rest.GetAllProducts();
+                    products = await Rest.GetAllProducts().ConfigureAwait(true);
                     if(InvokeRequired)
                     {
                         Invoke((Action)(
@@ -45,37 +45,52 @@ namespace WindowsFormsApp1
                     }
                 });
             }
-            catch (Exception ex)
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            catch (OutOfMemoryException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            catch (IndexOutOfRangeException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
         }
-
         private void InsertData(List<Product> products)
         {
             try
             {
                 foreach (Product p in products)
                 {
-                    dataGridView1.Rows.Insert(products.IndexOf(p), p.id, p.name, p.regular_price, p.stock_status, p.stock_quantity, p.categories.Last().name);
+                    ParserGridView.Rows.Insert(products.IndexOf(p), p.id, p.name, p.regular_price, p.stock_status, p.stock_quantity, p.categories.Last().name);
                 }
             }
-            catch(Exception ex)
+            catch(NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message.ToString() + "\n в параметре" + ex.ParamName);
+            }            
+            catch (InvalidOperationException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
         }
 
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void ParserGridView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
                 if (e.ColumnIndex==6)
                 {
-                      Task.Run(async () => { await Rest.UpdateProductFromDataRow(dataGridView1.CurrentRow); }); 
+                      Task.Run(async () => { await Rest.UpdateProductFromDataRow(ParserGridView.CurrentRow).ConfigureAwait(true); }); 
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }

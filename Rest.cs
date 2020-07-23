@@ -7,12 +7,12 @@ using System.Runtime.Serialization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Forms;
+using VaporStoreClubNamespace.Forms;
 using WooCommerceNET;
 using WooCommerceNET.WooCommerce.v3;
 
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     [DataContract]
     class Rest
@@ -44,10 +44,10 @@ namespace WindowsFormsApp1
             }
         }
 
-        public async static void UpdateById(int ID,Product product)
-        {
-            await wc.Product.Update(ID, product);
-        }
+        //public async static void UpdateById(int ID,Product product)
+        //{
+        //    await wc.Product.Update(ID, product);
+        //}
 
         public async static Task GetCategoriesAsync()
         {
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
                 while (hasResults)
                 {
                     parameters["page"] = (page++).ToString();
-                    var cats = await wc.Category.GetAll(parameters);
+                    var cats = await wc.Category.GetAll(parameters).ConfigureAwait(true);
                     categories.AddRange(cats);
                     hasResults = cats.Count == perPage;
                 }
@@ -73,7 +73,7 @@ namespace WindowsFormsApp1
                 while (hasResults)
                 {
                     parameters["page"] = (page++).ToString();
-                    var cats = await wc.Category.GetAll(parameters);
+                    var cats = await wc.Category.GetAll(parameters).ConfigureAwait(true);
                     categories.AddRange(cats);
                     hasResults = cats.Count == perPage;
                 }
@@ -101,7 +101,7 @@ namespace WindowsFormsApp1
                 product.categories.Last().name = row.Cells[5].Value.ToString();
                 product.manage_stock = true;
                 wc.Product.Update(product.id.Value, product);
-            });
+            }).ConfigureAwait(true);
         }
 
         public static async Task AddProductFromRaw(RawProduct raw,int count)
@@ -129,7 +129,7 @@ namespace WindowsFormsApp1
                 product.regular_price = ProductPrice[i];
                 product.manage_stock = true;
                 product.stock_quantity = ProductStock[i];
-                await Rest.wc.Product.Add(product);
+                await Rest.wc.Product.Add(product).ConfigureAwait(true);
             }
             
         }
@@ -175,7 +175,7 @@ namespace WindowsFormsApp1
             while (hasResults)
             {
                 parameters["page"] = (page++).ToString();
-                var prods = await wc.Product.GetAll(parameters);
+                var prods = await wc.Product.GetAll(parameters).ConfigureAwait(true);
                 products.AddRange(prods);
                 hasResults = prods.Count == perPage;
             }

@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace VaporStoreClubNamespace
 {
     partial class ParseWindow
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ParserGridView = new System.Windows.Forms.DataGridView();
             this.Number_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Name_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price_Columnt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,20 +37,20 @@
             this.Category_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // ParserGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ParserGridView.AllowUserToAddRows = false;
+            this.ParserGridView.AllowUserToDeleteRows = false;
+            this.ParserGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ParserGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.ParserGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.ParserGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ParserGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Number_Column,
             this.Name_Column,
             this.Price_Columnt,
@@ -58,11 +58,11 @@
             this.Amount_Column,
             this.Category_Column,
             this.ActionButtonColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1205, 637);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.ParserGridView.Location = new System.Drawing.Point(12, 54);
+            this.ParserGridView.Name = "ParserGridView";
+            this.ParserGridView.Size = new System.Drawing.Size(1205, 637);
+            this.ParserGridView.TabIndex = 0;
+            this.ParserGridView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ParserGridView_CellMouseClick);
             // 
             // Number_Column
             // 
@@ -125,14 +125,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 703);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.ParserGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "ParseWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parser";
-            this.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.Controls.SetChildIndex(this.ParserGridView, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -140,7 +140,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView ParserGridView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name_Column;

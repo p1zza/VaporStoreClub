@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace VaporStoreClubNamespace
 {
     class RegistryWorker
     {
@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
         private string cl_k { get; set; }
         private string ApiLink { get; set; }
         
-        private string path = @"Software\Vapor Store Club";
+        private readonly string path = @"Software\Vapor Store Club";
 
         public RegistryWorker()
         {
@@ -52,7 +52,69 @@ namespace WindowsFormsApp1
             }
         }
 
-        public void AddData(string consumer_key, string closed_key,string Api)
+        public void AddData(Dictionary<string,string> Dictionary)
+        {
+            try
+            {
+                foreach(var keyValuePair in Dictionary)
+                {
+                    Registry.CurrentUser.CreateSubKey(path).SetValue(keyValuePair.Key, keyValuePair.Value);
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+        }
+        public void AddData(Dictionary<string, int> Dictionary)
+        {
+            try
+            {
+                foreach (var keyValuePair in Dictionary)
+                {
+                    Registry.CurrentUser.CreateSubKey(path).SetValue(keyValuePair.Key, keyValuePair.Value);
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (ObjectDisposedException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (SecurityException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+        }
+
+
+        public void RegisterKeyApi(string consumer_key, string closed_key,string Api)
         {
             try
             {

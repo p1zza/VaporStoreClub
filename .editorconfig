@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CA1707: Идентификаторы не должны содержать символы подчеркивания
+dotnet_diagnostic.CA1707.severity = silent
+
+# CA1305: Укажите IFormatProvider
+dotnet_diagnostic.CA1305.severity = suggestion
