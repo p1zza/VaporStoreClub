@@ -92,7 +92,7 @@ namespace VaporStoreClubNamespace
         {
             if (FormIsOpen("ParseWindow"))
             {
-                using (ParseWindow parseWindow = new ParseWindow())
+                using (VaporStoreClubNamespace.ParseWindow parseWindow = new VaporStoreClubNamespace.ParseWindow())
                 {
                     parseWindow.Show();
                 }

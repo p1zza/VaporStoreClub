@@ -37,6 +37,7 @@
             this.Category_Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActionButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,11 +120,20 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Найдено товаров:";
             // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(937, 28);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(280, 20);
+            this.SearchTextBox.TabIndex = 4;
+            this.SearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTextBox_KeyPress);
+            // 
             // ParseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 703);
+            this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ParserGridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
@@ -132,6 +142,7 @@
             this.Text = "Parser";
             this.Controls.SetChildIndex(this.ParserGridView, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.SearchTextBox, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -149,5 +160,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount_Column;
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_Column;
         private System.Windows.Forms.DataGridViewButtonColumn ActionButtonColumn;
+        private System.Windows.Forms.TextBox SearchTextBox;
     }
 }

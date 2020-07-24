@@ -95,5 +95,10 @@ namespace VaporStoreClubNamespace
                 MessageBox.Show(ex.Message.ToString());
             }
         }
+
+        private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

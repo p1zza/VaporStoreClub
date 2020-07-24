@@ -4,6 +4,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <SignAssembly>true</SignAssembly>
+
+    <AssemblyOriginatorKeyFile>MainKey.pfx</AssemblyOriginatorKeyFile>
+
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
 
   <ItemGroup>
