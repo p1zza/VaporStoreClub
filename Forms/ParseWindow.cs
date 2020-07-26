@@ -53,11 +53,8 @@ namespace VaporStoreClubNamespace
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-            catch (IndexOutOfRangeException ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
-            }
         }
+
         private void InsertData(List<Product> products)
         {
             try
@@ -98,7 +95,16 @@ namespace VaporStoreClubNamespace
 
         private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            for(int i = 0; i<ParserGridView.Rows.Count;i++)
+            {
+                for(int j = 0; j<ParserGridView.Columns.Count;j++)
+                {
+                    if (ParserGridView.Rows[i].Cells[j].Value.ToString().ToLower().Contains(SearchTextBox.Text.ToLower()))
+                    {
+                        ParserGridView.CurrentCell = ParserGridView.Rows[i].Cells[j];
+                    }
+                }
+            }
         }
     }
 }

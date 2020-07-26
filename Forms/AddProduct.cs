@@ -104,10 +104,11 @@ namespace VaporStoreClubNamespace.Forms
                 }
                // return error;
             }
-            catch(Exception ex)
+            catch(NullReferenceException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+          
             
             return error;
         }

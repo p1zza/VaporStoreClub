@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VaporStoreClubNamespace
 {
-    class CryptoWorker
+    public class CryptoWorker
     {
         private RijndaelManaged myRijndael = new RijndaelManaged();
         private int iterations;

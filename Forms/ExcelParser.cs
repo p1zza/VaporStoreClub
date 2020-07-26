@@ -157,8 +157,6 @@ namespace VaporStoreClubNamespace.Forms
             {
                 MessageBox.Show(ex.Message.ToString());
             }
-
-            
         }
 
         private void SaveToExcelButton_Click(object sender, EventArgs e)

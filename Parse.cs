@@ -101,11 +101,18 @@ namespace VaporStoreClubNamespace
                 }
                 return dataGridView;
             }
-            catch (Exception ex)
+            catch(ArgumentException ex)
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
             }
-
+            catch(NullReferenceException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
+            catch(OutOfMemoryException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
             return dataGridView;
         }
 
