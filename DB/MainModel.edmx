@@ -15,15 +15,21 @@
         <EntityContainer Name="MainModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="PriceProductSet" EntityType="MainModel.PriceProduct" />
           <EntitySet Name="SiteProductSet" EntityType="MainModel.SiteProduct" />
+          <AssociationSet Name="SiteProductPriceProduct" Association="MainModel.SiteProductPriceProduct">
+            <End Role="SiteProduct" EntitySet="SiteProductSet" />
+            <End Role="PriceProduct" EntitySet="PriceProductSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="SiteProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="StockAmount" Type="String" Nullable="false" />
-          <Property Name="Price" Type="String" Nullable="false" />
-          <Property Name="PriceProductID" Type="String" Nullable="false" />
-          <NavigationProperty Name="PriceProductId" />
+          <Property Name="StockAmount" Type="Int16" Nullable="false" />
+          <Property Name="Price" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="PriceProduct" Relationship="MainModel.SiteProductPriceProduct" FromRole="SiteProduct" ToRole="PriceProduct" />
         </EntityType>
         <EntityType Name="PriceProduct">
           <Key>
@@ -32,9 +38,14 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" />
-          <Property Name="StockAmount" Type="String" Nullable="false" />
-          <Property Name="Price" Type="String" Nullable="false" />
+          <Property Name="StockAmount" Type="Int16" Nullable="false" />
+          <Property Name="Price" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="SiteProduct" Relationship="MainModel.SiteProductPriceProduct" FromRole="PriceProduct" ToRole="SiteProduct" />
         </EntityType>
+        <Association Name="SiteProductPriceProduct">
+          <End Type="MainModel.SiteProduct" Role="SiteProduct" Multiplicity="1" />
+          <End Type="MainModel.PriceProduct" Role="PriceProduct" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

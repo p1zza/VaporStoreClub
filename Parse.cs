@@ -25,18 +25,6 @@ namespace VaporStoreClubNamespace
             path = Path;
         }
 
-        public static void CloseExcel()
-        {
-            if(xlWorkBook != null)
-            {
-                xlWorkBook.Close(false);
-            }
-            if(xlApp !=null)
-            {
-                xlApp.Quit();
-            } 
-        }
-
         public System.Windows.Forms.DataGridView StartParseExcel(System.Windows.Forms.DataGridView dataGridView,string pattern)
         {
             try
@@ -73,6 +61,11 @@ namespace VaporStoreClubNamespace
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
             }
+            finally
+            {
+                xlApp.Quit();
+                xlWorkBook.Close(false);
+            }
             return null;
         }
 
@@ -80,17 +73,15 @@ namespace VaporStoreClubNamespace
         {
             try
             {
-                int iLastRow = sheet.Cells[sheet.Rows.Count, "A"].End[Microsoft.Office.Interop.Excel.XlDirection.xlUp].Row;  //последняя заполненная строка в столбце А            
-                var arrData = (object[,])sheet.Range[pattern + iLastRow].Value; //берём данные с листа Excel
+                int iLastRow = sheet.Cells[sheet.Rows.Count, "A"].End[Microsoft.Office.Interop.Excel.XlDirection.xlUp].Row; 
+                var arrData = (object[,])sheet.Range[pattern + iLastRow].Value; 
 
-                //настройка DataGridView
                 dataGridView.Rows.Clear();
                 int RowsCount = arrData.GetUpperBound(0);
                 int ColumnsCount = arrData.GetUpperBound(1);
-                dataGridView.RowCount = RowsCount; //кол-во строк в DGV
-                dataGridView.ColumnCount = ColumnsCount; //кол-во столбцов в DGV
+                dataGridView.RowCount = RowsCount; 
+                dataGridView.ColumnCount = ColumnsCount; 
 
-                //заполняем DataGridView данными из массива
                 int i, j;
                 for (i = 1; i <= RowsCount; i++)
                 {

@@ -53,7 +53,6 @@ namespace VaporStoreClubNamespace.Forms
                 {
                     parser.StartParseExcel(dataGridView1, ExcelPatternTextBox.Text);
                 }
-                Parse.CloseExcel();
             });
             }
             catch(Exception ex)
