@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -10,10 +11,10 @@ using System.Windows.Forms;
 
 namespace VaporStoreClubNamespace.Forms
 {
+    [KeyValidate]
     public partial class AccountInfo : MainWindow
     {
         //public static WCObject wc { get; set; }
-
         public static string consumer_secret { get;set; }
         public static string consumer_key { get; set; }
         public static string RestApiLink { get; set; }

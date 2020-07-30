@@ -29,19 +29,12 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataFromSiteView = new System.Windows.Forms.DataGridView();
-            this.SiteProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiteProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiteProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiteProductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataFromMagazineView = new System.Windows.Forms.DataGridView();
-            this.dataProductView = new System.Windows.Forms.DataGridView();
-            this.SiteDataGridSearchTextBox = new System.Windows.Forms.TextBox();
-            this.PriceDataGridSearchTextBox = new System.Windows.Forms.TextBox();
             this.PriceProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceProductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataProductView = new System.Windows.Forms.DataGridView();
             this.Main_SiteProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Main_SiteProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Main_PriceProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,10 +44,17 @@
             this.Main_PriceProductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Main_ProductSelled = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Main_ProductInStockAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataFromSiteView = new System.Windows.Forms.DataGridView();
+            this.SiteProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SiteProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SiteProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SiteProductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SiteDataGridSearchTextBox = new System.Windows.Forms.TextBox();
+            this.PriceDataGridSearchTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataFromSiteView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataFromMagazineView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataProductView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFromSiteView)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.65347F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.34653F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 459F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460F));
             this.tableLayoutPanel1.Controls.Add(this.dataFromMagazineView, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataProductView, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dataFromSiteView, 0, 0);
@@ -75,40 +75,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1013, 731);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // dataFromSiteView
-            // 
-            this.dataFromSiteView.AllowUserToOrderColumns = true;
-            this.dataFromSiteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataFromSiteView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SiteProductID,
-            this.SiteProductName,
-            this.SiteProductDescription,
-            this.SiteProductAmount});
-            this.dataFromSiteView.Location = new System.Drawing.Point(3, 3);
-            this.dataFromSiteView.Name = "dataFromSiteView";
-            this.dataFromSiteView.Size = new System.Drawing.Size(462, 360);
-            this.dataFromSiteView.TabIndex = 0;
-            // 
-            // SiteProductID
-            // 
-            this.SiteProductID.HeaderText = "ID на сайте";
-            this.SiteProductID.Name = "SiteProductID";
-            // 
-            // SiteProductName
-            // 
-            this.SiteProductName.HeaderText = "Название на сайте";
-            this.SiteProductName.Name = "SiteProductName";
-            // 
-            // SiteProductDescription
-            // 
-            this.SiteProductDescription.HeaderText = "Краткое описание товара на сайте";
-            this.SiteProductDescription.Name = "SiteProductDescription";
-            // 
-            // SiteProductAmount
-            // 
-            this.SiteProductAmount.HeaderText = "Общее количество";
-            this.SiteProductAmount.Name = "SiteProductAmount";
-            // 
             // dataFromMagazineView
             // 
             this.dataFromMagazineView.AllowUserToOrderColumns = true;
@@ -118,43 +84,10 @@
             this.PriceProductName,
             this.PriceProductDescription,
             this.PriceProductAmount});
-            this.dataFromMagazineView.Location = new System.Drawing.Point(556, 3);
+            this.dataFromMagazineView.Location = new System.Drawing.Point(555, 3);
             this.dataFromMagazineView.Name = "dataFromMagazineView";
             this.dataFromMagazineView.Size = new System.Drawing.Size(454, 360);
             this.dataFromMagazineView.TabIndex = 1;
-            // 
-            // dataProductView
-            // 
-            this.dataProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataProductView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Main_SiteProductID,
-            this.Main_SiteProductName,
-            this.Main_PriceProductName,
-            this.Main_SiteProductDescription,
-            this.Main_ProductDefaultPrice,
-            this.Main_ProductRecommendPrice,
-            this.Main_PriceProductAmount,
-            this.Main_ProductSelled,
-            this.Main_ProductInStockAmount});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataProductView, 3);
-            this.dataProductView.Location = new System.Drawing.Point(3, 432);
-            this.dataProductView.Name = "dataProductView";
-            this.dataProductView.Size = new System.Drawing.Size(1007, 256);
-            this.dataProductView.TabIndex = 2;
-            // 
-            // SiteDataGridSearchTextBox
-            // 
-            this.SiteDataGridSearchTextBox.Location = new System.Drawing.Point(15, 40);
-            this.SiteDataGridSearchTextBox.Name = "SiteDataGridSearchTextBox";
-            this.SiteDataGridSearchTextBox.Size = new System.Drawing.Size(462, 20);
-            this.SiteDataGridSearchTextBox.TabIndex = 4;
-            // 
-            // PriceDataGridSearchTextBox
-            // 
-            this.PriceDataGridSearchTextBox.Location = new System.Drawing.Point(568, 40);
-            this.PriceDataGridSearchTextBox.Name = "PriceDataGridSearchTextBox";
-            this.PriceDataGridSearchTextBox.Size = new System.Drawing.Size(454, 20);
-            this.PriceDataGridSearchTextBox.TabIndex = 5;
             // 
             // PriceProductID
             // 
@@ -175,6 +108,25 @@
             // 
             this.PriceProductAmount.HeaderText = "Общее количество по прайсу";
             this.PriceProductAmount.Name = "PriceProductAmount";
+            // 
+            // dataProductView
+            // 
+            this.dataProductView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataProductView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Main_SiteProductID,
+            this.Main_SiteProductName,
+            this.Main_PriceProductName,
+            this.Main_SiteProductDescription,
+            this.Main_ProductDefaultPrice,
+            this.Main_ProductRecommendPrice,
+            this.Main_PriceProductAmount,
+            this.Main_ProductSelled,
+            this.Main_ProductInStockAmount});
+            this.tableLayoutPanel1.SetColumnSpan(this.dataProductView, 3);
+            this.dataProductView.Location = new System.Drawing.Point(3, 432);
+            this.dataProductView.Name = "dataProductView";
+            this.dataProductView.Size = new System.Drawing.Size(1007, 256);
+            this.dataProductView.TabIndex = 2;
             // 
             // Main_SiteProductID
             // 
@@ -221,6 +173,54 @@
             this.Main_ProductInStockAmount.HeaderText = "Осталось";
             this.Main_ProductInStockAmount.Name = "Main_ProductInStockAmount";
             // 
+            // dataFromSiteView
+            // 
+            this.dataFromSiteView.AllowUserToOrderColumns = true;
+            this.dataFromSiteView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataFromSiteView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SiteProductID,
+            this.SiteProductName,
+            this.SiteProductDescription,
+            this.SiteProductAmount});
+            this.dataFromSiteView.Location = new System.Drawing.Point(3, 3);
+            this.dataFromSiteView.Name = "dataFromSiteView";
+            this.dataFromSiteView.Size = new System.Drawing.Size(462, 360);
+            this.dataFromSiteView.TabIndex = 0;
+            // 
+            // SiteProductID
+            // 
+            this.SiteProductID.HeaderText = "ID на сайте";
+            this.SiteProductID.Name = "SiteProductID";
+            // 
+            // SiteProductName
+            // 
+            this.SiteProductName.HeaderText = "Название на сайте";
+            this.SiteProductName.Name = "SiteProductName";
+            // 
+            // SiteProductDescription
+            // 
+            this.SiteProductDescription.HeaderText = "Краткое описание товара на сайте";
+            this.SiteProductDescription.Name = "SiteProductDescription";
+            // 
+            // SiteProductAmount
+            // 
+            this.SiteProductAmount.HeaderText = "Общее количество";
+            this.SiteProductAmount.Name = "SiteProductAmount";
+            // 
+            // SiteDataGridSearchTextBox
+            // 
+            this.SiteDataGridSearchTextBox.Location = new System.Drawing.Point(15, 40);
+            this.SiteDataGridSearchTextBox.Name = "SiteDataGridSearchTextBox";
+            this.SiteDataGridSearchTextBox.Size = new System.Drawing.Size(462, 20);
+            this.SiteDataGridSearchTextBox.TabIndex = 4;
+            // 
+            // PriceDataGridSearchTextBox
+            // 
+            this.PriceDataGridSearchTextBox.Location = new System.Drawing.Point(568, 40);
+            this.PriceDataGridSearchTextBox.Name = "PriceDataGridSearchTextBox";
+            this.PriceDataGridSearchTextBox.Size = new System.Drawing.Size(454, 20);
+            this.PriceDataGridSearchTextBox.TabIndex = 5;
+            // 
             // ProductAccounting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,9 +235,9 @@
             this.Controls.SetChildIndex(this.SiteDataGridSearchTextBox, 0);
             this.Controls.SetChildIndex(this.PriceDataGridSearchTextBox, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataFromSiteView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataFromMagazineView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataProductView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataFromSiteView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

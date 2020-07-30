@@ -36,6 +36,7 @@
             this.списокТоваровToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьТоварToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.аккаунтToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.учётToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             this.главноеМенюToolStripMenuItem,
             this.файлДляЭкспортаToolStripMenuItem,
             this.списокТоваровToolStripMenuItem,
-            this.аккаунтToolStripMenuItem});
+            this.аккаунтToolStripMenuItem,
+            this.учётToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -107,6 +109,13 @@
             this.аккаунтToolStripMenuItem.Text = "Аккаунт";
             this.аккаунтToolStripMenuItem.Click += new System.EventHandler(this.аккаунтToolStripMenuItem_Click);
             // 
+            // учётToolStripMenuItem
+            // 
+            this.учётToolStripMenuItem.Name = "учётToolStripMenuItem";
+            this.учётToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.учётToolStripMenuItem.Text = "Учёт";
+            this.учётToolStripMenuItem.Click += new System.EventHandler(this.учётToolStripMenuItem_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -131,6 +140,7 @@
         private System.Windows.Forms.ToolStripMenuItem посмотретьТаблицуЭкспортаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem добавитьТоварToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem списокТоваровToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem учётToolStripMenuItem;
     }
 }
 

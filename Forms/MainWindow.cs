@@ -27,10 +27,8 @@ namespace VaporStoreClubNamespace
         {
             if (FormIsOpen("AccountInfo"))
             {
-                using (AccountInfo accountInfo = new AccountInfo())
-                {
-                    accountInfo.Show();
-                }
+                AccountInfo accountInfo = new AccountInfo();                
+                accountInfo.Show();
             }
         }
 
@@ -102,6 +100,17 @@ namespace VaporStoreClubNamespace
         private void button1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void учётToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (FormIsOpen("ProductAccounting"))
+            {
+                using (VaporStoreClubNamespace.Forms.ProductAccounting productAccounting = new ProductAccounting() )
+                {
+                    productAccounting.Show();
+                }
+            }
         }
     }
 }
