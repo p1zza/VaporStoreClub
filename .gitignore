@@ -341,3 +341,4 @@ healthchecksdb
 /MainKey.txt
 /MainKey.pfx
 /keyPair.snk
+/VaporStoreClubTests/keyPair.snk
