@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VaporStoreClubNamespace;
+﻿using VaporStoreClubNamespace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
