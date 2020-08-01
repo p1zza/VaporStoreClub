@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace VaporStoreClubNamespace
 {
     public class CryptoWorker
@@ -15,14 +16,21 @@ namespace VaporStoreClubNamespace
 
         public CryptoWorker(string strPassword, string specString, string saltString)
         {
-            myRijndael.BlockSize = 128;
-            myRijndael.KeySize = 128;
-            myRijndael.IV = HexStringToByteArray(specString);
-            myRijndael.Padding = PaddingMode.PKCS7;
-            myRijndael.Mode = CipherMode.CBC;
-            iterations = 1000;
-            salt = Encoding.UTF8.GetBytes(saltString);
-            myRijndael.Key = GenerateKey(strPassword);
+            try
+            {
+                myRijndael.BlockSize = 128;
+                myRijndael.KeySize = 128;
+                myRijndael.IV = HexStringToByteArray(specString);
+                myRijndael.Padding = PaddingMode.PKCS7;
+                myRijndael.Mode = CipherMode.CBC;
+                iterations = 1000;
+                salt = Encoding.UTF8.GetBytes(saltString);
+                myRijndael.Key = GenerateKey(strPassword);
+            }
+            catch(NullReferenceException ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         public string Encrypt(string strPlainText)
@@ -43,10 +51,14 @@ namespace VaporStoreClubNamespace
 
         public static byte[] HexStringToByteArray(string strHex)
         {
-            byte[] r = new byte[strHex.Length / 2];
-            for (int i = 0; i <= strHex.Length - 1; i += 2)
-                r[i / 2] = Convert.ToByte(Convert.ToInt32(strHex.Substring(i, 2), 16));
-            return r;
+            if(!String.IsNullOrWhiteSpace(strHex))
+            {
+                byte[] r = new byte[strHex.Length / 2];
+                for (int i = 0; i <= strHex.Length - 1; i += 2)
+                    r[i / 2] = Convert.ToByte(Convert.ToInt32(strHex.Substring(i, 2), 16));
+                return r;
+            }
+            return null;
         }
 
         private byte[] GenerateKey(string strPassword)

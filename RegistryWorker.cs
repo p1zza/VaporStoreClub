@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace VaporStoreClubNamespace
 {
-    class RegistryWorker
+    public class RegistryWorker
     {
         private string c_k { get; set; }
         private string cl_k { get; set; }
@@ -50,6 +50,11 @@ namespace VaporStoreClubNamespace
             {
                 MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
             }
+        }
+
+        public string GetPath()
+        {
+            return path;
         }
 
         public void AddData(Dictionary<string,string> Dictionary)
@@ -108,6 +113,10 @@ namespace VaporStoreClubNamespace
                 MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
             }
             catch (IOException ex)
+            {
+                MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
+            }
+            catch(NullReferenceException ex)
             {
                 MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
             }
