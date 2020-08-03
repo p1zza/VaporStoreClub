@@ -131,6 +131,12 @@
     <Compile Include="Forms\ProductAccounting.Designer.cs">
       <DependentUpon>ProductAccounting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ProductOrdersWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductOrdersWindow.Designer.cs">
+      <DependentUpon>ProductOrdersWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyAttribute.cs" />
     <Compile Include="Parse.cs" />
     <Compile Include="Program.cs" />
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ProductAccounting.resx">
       <DependentUpon>ProductAccounting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductOrdersWindow.resx">
+      <DependentUpon>ProductOrdersWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

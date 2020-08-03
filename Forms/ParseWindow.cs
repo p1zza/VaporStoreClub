@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,9 @@ namespace VaporStoreClubNamespace
         public ParseWindow()
         {
             InitializeComponent();
-            LoadData();
         }
 
-        public void LoadData()
+        public void LoadDataFromSite()
         {
             try
             {
@@ -95,6 +95,7 @@ namespace VaporStoreClubNamespace
 
         private void SearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //CultureInfo cultureInfo = new CultureInfo("ru"); 
             for(int i = 0; i<ParserGridView.Rows.Count;i++)
             {
                 for(int j = 0; j<ParserGridView.Columns.Count;j++)
@@ -105,6 +106,25 @@ namespace VaporStoreClubNamespace
                     }
                 }
             }
+        }
+
+        private void GetDataFromMagazine_Button_Click(object sender, EventArgs e) => LoadDataFromSite();
+
+        private void GetDataFromSiteDB_Button_Click(object sender, EventArgs e)
+        {
+            Uri uri = new Uri(@"http://34.69.5.208/get_giv_mi_to_base");
+            var s = ServerWorker.GetRequest(uri);
+            throw new NotImplementedException(); 
+        }
+
+        private void ParseWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void ParseWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

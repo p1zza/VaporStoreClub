@@ -49,6 +49,8 @@
             this.SiteProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SiteProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SiteProductAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DayOutcomeTextBox = new System.Windows.Forms.TextBox();
+            this.DeliveriesListTextBox = new System.Windows.Forms.TextBox();
             this.SiteDataGridSearchTextBox = new System.Windows.Forms.TextBox();
             this.PriceDataGridSearchTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
@@ -62,10 +64,12 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.65347F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.34653F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 460F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 462F));
             this.tableLayoutPanel1.Controls.Add(this.dataFromMagazineView, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.dataProductView, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dataFromSiteView, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.DayOutcomeTextBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.DeliveriesListTextBox, 2, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 63);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -84,9 +88,9 @@
             this.PriceProductName,
             this.PriceProductDescription,
             this.PriceProductAmount});
-            this.dataFromMagazineView.Location = new System.Drawing.Point(555, 3);
+            this.dataFromMagazineView.Location = new System.Drawing.Point(553, 3);
             this.dataFromMagazineView.Name = "dataFromMagazineView";
-            this.dataFromMagazineView.Size = new System.Drawing.Size(454, 360);
+            this.dataFromMagazineView.Size = new System.Drawing.Size(457, 360);
             this.dataFromMagazineView.TabIndex = 1;
             // 
             // PriceProductID
@@ -125,7 +129,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.dataProductView, 3);
             this.dataProductView.Location = new System.Drawing.Point(3, 432);
             this.dataProductView.Name = "dataProductView";
-            this.dataProductView.Size = new System.Drawing.Size(1007, 256);
+            this.dataProductView.Size = new System.Drawing.Size(1007, 296);
             this.dataProductView.TabIndex = 2;
             // 
             // Main_SiteProductID
@@ -184,7 +188,7 @@
             this.SiteProductAmount});
             this.dataFromSiteView.Location = new System.Drawing.Point(3, 3);
             this.dataFromSiteView.Name = "dataFromSiteView";
-            this.dataFromSiteView.Size = new System.Drawing.Size(462, 360);
+            this.dataFromSiteView.Size = new System.Drawing.Size(460, 360);
             this.dataFromSiteView.TabIndex = 0;
             // 
             // SiteProductID
@@ -207,18 +211,34 @@
             this.SiteProductAmount.HeaderText = "Общее количество";
             this.SiteProductAmount.Name = "SiteProductAmount";
             // 
+            // DayOutcomeTextBox
+            // 
+            this.DayOutcomeTextBox.Location = new System.Drawing.Point(3, 369);
+            this.DayOutcomeTextBox.Multiline = true;
+            this.DayOutcomeTextBox.Name = "DayOutcomeTextBox";
+            this.DayOutcomeTextBox.Size = new System.Drawing.Size(460, 57);
+            this.DayOutcomeTextBox.TabIndex = 3;
+            // 
+            // DeliveriesListTextBox
+            // 
+            this.DeliveriesListTextBox.Location = new System.Drawing.Point(553, 369);
+            this.DeliveriesListTextBox.Multiline = true;
+            this.DeliveriesListTextBox.Name = "DeliveriesListTextBox";
+            this.DeliveriesListTextBox.Size = new System.Drawing.Size(456, 57);
+            this.DeliveriesListTextBox.TabIndex = 4;
+            // 
             // SiteDataGridSearchTextBox
             // 
-            this.SiteDataGridSearchTextBox.Location = new System.Drawing.Point(15, 40);
+            this.SiteDataGridSearchTextBox.Location = new System.Drawing.Point(13, 40);
             this.SiteDataGridSearchTextBox.Name = "SiteDataGridSearchTextBox";
             this.SiteDataGridSearchTextBox.Size = new System.Drawing.Size(462, 20);
             this.SiteDataGridSearchTextBox.TabIndex = 4;
             // 
             // PriceDataGridSearchTextBox
             // 
-            this.PriceDataGridSearchTextBox.Location = new System.Drawing.Point(568, 40);
+            this.PriceDataGridSearchTextBox.Location = new System.Drawing.Point(565, 40);
             this.PriceDataGridSearchTextBox.Name = "PriceDataGridSearchTextBox";
-            this.PriceDataGridSearchTextBox.Size = new System.Drawing.Size(454, 20);
+            this.PriceDataGridSearchTextBox.Size = new System.Drawing.Size(457, 20);
             this.PriceDataGridSearchTextBox.TabIndex = 5;
             // 
             // ProductAccounting
@@ -235,6 +255,7 @@
             this.Controls.SetChildIndex(this.SiteDataGridSearchTextBox, 0);
             this.Controls.SetChildIndex(this.PriceDataGridSearchTextBox, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataFromMagazineView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataProductView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataFromSiteView)).EndInit();
@@ -268,5 +289,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Main_PriceProductAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Main_ProductSelled;
         private System.Windows.Forms.DataGridViewTextBoxColumn Main_ProductInStockAmount;
+        private System.Windows.Forms.TextBox DayOutcomeTextBox;
+        private System.Windows.Forms.TextBox DeliveriesListTextBox;
     }
 }

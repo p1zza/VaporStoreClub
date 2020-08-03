@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace VaporStoreClubNamespace
 {
-    class ServerWorker
+    static class ServerWorker
     {
         //string uripath = @"http://34.69.5.208/";
         public async static void PostRequest(Uri uri)
@@ -17,7 +17,8 @@ namespace VaporStoreClubNamespace
             {
                 new KeyValuePair<string, string> ("key","value")
             };
-            using (HttpContent httpContent = new FormUrlEncodedContent(queries))
+            
+            using (HttpContent httpContent =new FormUrlEncodedContent(queries))
             {
                 using (HttpClient httpClient = new HttpClient())
                 {

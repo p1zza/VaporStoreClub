@@ -38,6 +38,8 @@
             this.ActionButtonColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.GetDataFromMagazine_Button = new System.Windows.Forms.Button();
+            this.GetDataFromSiteDB_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -128,11 +130,33 @@
             this.SearchTextBox.TabIndex = 4;
             this.SearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchTextBox_KeyPress);
             // 
+            // GetDataFromMagazine_Button
+            // 
+            this.GetDataFromMagazine_Button.Location = new System.Drawing.Point(588, 28);
+            this.GetDataFromMagazine_Button.Name = "GetDataFromMagazine_Button";
+            this.GetDataFromMagazine_Button.Size = new System.Drawing.Size(203, 23);
+            this.GetDataFromMagazine_Button.TabIndex = 5;
+            this.GetDataFromMagazine_Button.Text = "Загрузить из магазина";
+            this.GetDataFromMagazine_Button.UseVisualStyleBackColor = true;
+            this.GetDataFromMagazine_Button.Click += new System.EventHandler(this.GetDataFromMagazine_Button_Click);
+            // 
+            // GetDataFromSiteDB_Button
+            // 
+            this.GetDataFromSiteDB_Button.Location = new System.Drawing.Point(392, 28);
+            this.GetDataFromSiteDB_Button.Name = "GetDataFromSiteDB_Button";
+            this.GetDataFromSiteDB_Button.Size = new System.Drawing.Size(190, 23);
+            this.GetDataFromSiteDB_Button.TabIndex = 6;
+            this.GetDataFromSiteDB_Button.Text = "Загрузить из базы данных";
+            this.GetDataFromSiteDB_Button.UseVisualStyleBackColor = true;
+            this.GetDataFromSiteDB_Button.Click += new System.EventHandler(this.GetDataFromSiteDB_Button_Click);
+            // 
             // ParseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 703);
+            this.Controls.Add(this.GetDataFromSiteDB_Button);
+            this.Controls.Add(this.GetDataFromMagazine_Button);
             this.Controls.Add(this.SearchTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ParserGridView);
@@ -140,9 +164,13 @@
             this.Name = "ParseWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Parser";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ParseWindow_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ParseWindow_FormClosed);
             this.Controls.SetChildIndex(this.ParserGridView, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.SearchTextBox, 0);
+            this.Controls.SetChildIndex(this.GetDataFromMagazine_Button, 0);
+            this.Controls.SetChildIndex(this.GetDataFromSiteDB_Button, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ParserGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,5 +189,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Category_Column;
         private System.Windows.Forms.DataGridViewButtonColumn ActionButtonColumn;
         private System.Windows.Forms.TextBox SearchTextBox;
+        private System.Windows.Forms.Button GetDataFromMagazine_Button;
+        private System.Windows.Forms.Button GetDataFromSiteDB_Button;
     }
 }
