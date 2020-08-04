@@ -93,7 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CryptoWorker.cs" />
+    <Compile Include="Workers\CryptoWorker.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Forms\AccountInfo.cs">
       <SubType>Form</SubType>
@@ -137,14 +137,14 @@
     <Compile Include="Forms\ProductOrdersWindow.Designer.cs">
       <DependentUpon>ProductOrdersWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="KeyAttribute.cs" />
     <Compile Include="Parse.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RawProduct.cs" />
-    <Compile Include="RegistryWorker.cs" />
+    <Compile Include="Workers\JsonWorker.cs" />
+    <Compile Include="Workers\RegistryWorker.cs" />
     <Compile Include="Rest.cs" />
-    <Compile Include="ServerWorker.cs" />
+    <Compile Include="Workers\ServerWorker.cs" />
     <EmbeddedResource Include="Forms\AccountInfo.resx">
       <DependentUpon>AccountInfo.cs</DependentUpon>
     </EmbeddedResource>

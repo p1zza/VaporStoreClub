@@ -104,12 +104,25 @@ namespace VaporStoreClubNamespace
 
         private void учётToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void учётПоставокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(FormIsOpen("ProductOrdersWindow"))
+            {
+                VaporStoreClubNamespace.Forms.ProductOrdersWindow productOrdersWindow = new ProductOrdersWindow();
+                productOrdersWindow.Show();
+            }
+        }
+
+        private void учётТоваровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if (FormIsOpen("ProductAccounting"))
             {
-                using (VaporStoreClubNamespace.Forms.ProductAccounting productAccounting = new ProductAccounting() )
-                {
-                    productAccounting.Show();
-                }
+                VaporStoreClubNamespace.Forms.ProductAccounting productAccounting = new ProductAccounting();
+                productAccounting.Show();
+
             }
         }
     }

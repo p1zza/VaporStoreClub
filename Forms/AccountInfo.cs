@@ -11,7 +11,6 @@ using System.Windows.Forms;
 
 namespace VaporStoreClubNamespace.Forms
 {
-    [KeyValidate]
     public partial class AccountInfo : MainWindow
     {
         //public static WCObject wc { get; set; }

@@ -51,7 +51,7 @@ namespace VaporStoreClubNamespace
                 Range columnRange = xlWorkSheet.UsedRange;
                 int columnsCount  = columnRange.Columns.Count;
                 int rowsCount = columnRange.Rows.Count;
-                return GetDataFromSheet(xlWorkSheet, rowsCount, columnsCount, dataGridView,pattern);
+                return GetDataFromExcelSheet(xlWorkSheet, rowsCount, columnsCount, dataGridView,pattern);
             }
             catch(ArgumentNullException ex)
             {
@@ -69,7 +69,7 @@ namespace VaporStoreClubNamespace
             return null;
         }
 
-        public System.Windows.Forms.DataGridView GetDataFromSheet(Worksheet sheet, int rowsCount, int columnsCount, System.Windows.Forms.DataGridView dataGridView, string pattern)
+        public System.Windows.Forms.DataGridView GetDataFromExcelSheet(Worksheet sheet, int rowsCount, int columnsCount, System.Windows.Forms.DataGridView dataGridView, string pattern)
         {
             try
             {
@@ -108,14 +108,14 @@ namespace VaporStoreClubNamespace
         }
 
 
-        public static void GetData(RawProduct raw)
+        public static void GetProductDictionary(RawProduct raw)
         {
             var s = raw.GetProductNames();
             var d = raw.GetProductPrice();
             var n = raw.GetStickQuantity();
         }
 
-        public static void PutDataInDictionary(DataGridViewRowCollection Rows, int column, string pattern)
+        public static void PutProductInDictionary(DataGridViewRowCollection Rows, int column, string pattern)
         {
             switch (pattern)
             {

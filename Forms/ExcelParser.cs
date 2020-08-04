@@ -83,7 +83,7 @@ namespace VaporStoreClubNamespace.Forms
             GetPatternByCombobox(SeventhComboBox,   6);
             GetPatternByCombobox(EighthComboBox,    7);
 
-            Parse.GetData(Parse.raw);
+            Parse.GetProductDictionary(Parse.raw);
             Task.Run(()=>Rest.AddProductFromRaw(Parse.raw, Convert.ToUInt16(ExportAmountTextbox.Text)));
         }
         
@@ -122,27 +122,27 @@ namespace VaporStoreClubNamespace.Forms
                     {
                         case "Порядковый номер":
                             {
-                                Parse.PutDataInDictionary(dataGridView1.Rows, column, "Порядковый номер");
+                                Parse.PutProductInDictionary(dataGridView1.Rows, column, "Порядковый номер");
                                 break;
                             }
                         case "Наименование":
                             {
-                                Parse.PutDataInDictionary(dataGridView1.Rows, column, "Наименование");
+                                Parse.PutProductInDictionary(dataGridView1.Rows, column, "Наименование");
                                 break;
                             }
                         case "Цена":
                             {
-                                Parse.PutDataInDictionary(dataGridView1.Rows, column, "Цена");
+                                Parse.PutProductInDictionary(dataGridView1.Rows, column, "Цена");
                                 break;
                             }
                         case "Кол-во":
                             {
-                                Parse.PutDataInDictionary(dataGridView1.Rows, column, "Кол-во");
+                                Parse.PutProductInDictionary(dataGridView1.Rows, column, "Кол-во");
                                 break;
                             }
                         case "Категория":
                             {
-                                Parse.PutDataInDictionary(dataGridView1.Rows, column, "Категория");
+                                Parse.PutProductInDictionary(dataGridView1.Rows, column, "Категория");
                                 break;
                             }
                         case "Пропустить":
