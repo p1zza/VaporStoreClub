@@ -28,45 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.OrdersListBox = new System.Windows.Forms.ListBox();
+            this.OrdersDateTime = new System.Windows.Forms.DateTimePicker();
+            this.OrderCompanyTextBox = new System.Windows.Forms.TextBox();
+            this.OrderCommentsTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBox1
+            // OrdersListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(616, 37);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(378, 277);
-            this.listBox1.TabIndex = 3;
+            this.OrdersListBox.FormattingEnabled = true;
+            this.OrdersListBox.HorizontalScrollbar = true;
+            this.OrdersListBox.Location = new System.Drawing.Point(616, 37);
+            this.OrdersListBox.Name = "OrdersListBox";
+            this.OrdersListBox.Size = new System.Drawing.Size(378, 277);
+            this.OrdersListBox.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // OrdersDateTime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(370, 56);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 6;
+            this.OrdersDateTime.Location = new System.Drawing.Point(370, 56);
+            this.OrdersDateTime.Name = "OrdersDateTime";
+            this.OrdersDateTime.Size = new System.Drawing.Size(200, 20);
+            this.OrdersDateTime.TabIndex = 6;
             // 
-            // textBox1
+            // OrderCompanyTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 20);
-            this.textBox1.TabIndex = 7;
+            this.OrderCompanyTextBox.Location = new System.Drawing.Point(40, 56);
+            this.OrderCompanyTextBox.Name = "OrderCompanyTextBox";
+            this.OrderCompanyTextBox.Size = new System.Drawing.Size(265, 20);
+            this.OrderCompanyTextBox.TabIndex = 7;
             // 
-            // textBox2
+            // OrderCommentsTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(40, 96);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(265, 218);
-            this.textBox2.TabIndex = 8;
+            this.OrderCommentsTextBox.Location = new System.Drawing.Point(40, 96);
+            this.OrderCommentsTextBox.Multiline = true;
+            this.OrderCommentsTextBox.Name = "OrderCommentsTextBox";
+            this.OrderCommentsTextBox.Size = new System.Drawing.Size(265, 218);
+            this.OrderCommentsTextBox.TabIndex = 8;
             // 
             // label1
             // 
@@ -95,38 +96,39 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Когда поставка";
             // 
-            // button1
+            // AddOrderButton
             // 
-            this.button1.Location = new System.Drawing.Point(370, 263);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 50);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddOrderButton.Location = new System.Drawing.Point(370, 263);
+            this.AddOrderButton.Name = "AddOrderButton";
+            this.AddOrderButton.Size = new System.Drawing.Size(200, 50);
+            this.AddOrderButton.TabIndex = 12;
+            this.AddOrderButton.Text = "Сохранить";
+            this.AddOrderButton.UseVisualStyleBackColor = true;
+            this.AddOrderButton.Click += new System.EventHandler(this.AddOrderButton_Click);
             // 
             // ProductOrdersWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1006, 329);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddOrderButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.OrderCommentsTextBox);
+            this.Controls.Add(this.OrderCompanyTextBox);
+            this.Controls.Add(this.OrdersDateTime);
+            this.Controls.Add(this.OrdersListBox);
             this.Name = "ProductOrdersWindow";
             this.Text = "ProductOrdersWindow";
-            this.Controls.SetChildIndex(this.listBox1, 0);
-            this.Controls.SetChildIndex(this.dateTimePicker1, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.OrdersListBox, 0);
+            this.Controls.SetChildIndex(this.OrdersDateTime, 0);
+            this.Controls.SetChildIndex(this.OrderCompanyTextBox, 0);
+            this.Controls.SetChildIndex(this.OrderCommentsTextBox, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.AddOrderButton, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,13 +136,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ListBox OrdersListBox;
+        private System.Windows.Forms.DateTimePicker OrdersDateTime;
+        private System.Windows.Forms.TextBox OrderCompanyTextBox;
+        private System.Windows.Forms.TextBox OrderCommentsTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AddOrderButton;
     }
 }
