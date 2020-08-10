@@ -28,20 +28,23 @@ namespace VaporStoreClubNamespace
                 List<Product> products = new List<Product>();
                 Task t = Task.Factory.StartNew(async () =>
                 {
-                    products = await Rest.GetAllProducts().ConfigureAwait(true);
-                    if(InvokeRequired)
-                    {
-                        Invoke((Action)(
-                            ()=>
-                            {
-                                InsertData(products);
-                                label2.Text = "Найдено товаров" + products.Count + "\nВремя загрузки" + DateOfExport;
-                            })); 
-                    }
-                    else
-                    {
-                        InsertData(products);
-                        label2.Text = "Найдено товаров" + products.Count + "\nВремя загрузки" + DateOfExport;
+                        if(Rest.wc!=null)
+                        {
+                        products = await Rest.GetAllProducts().ConfigureAwait(true);
+                        if(InvokeRequired)
+                        {
+                            Invoke((Action)(
+                                ()=>
+                                {
+                                    InsertData(products);
+                                    label2.Text = "Найдено товаров" + products.Count + "\nВремя загрузки" + DateOfExport;
+                                })); 
+                        }
+                        else
+                        {
+                            InsertData(products);
+                            label2.Text = "Найдено товаров" + products.Count + "\nВремя загрузки" + DateOfExport;
+                        }
                     }
                 });
             }
@@ -50,6 +53,10 @@ namespace VaporStoreClubNamespace
                 MessageBox.Show(ex.Message.ToString());
             }
             catch (OutOfMemoryException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }
@@ -73,6 +80,10 @@ namespace VaporStoreClubNamespace
                 MessageBox.Show(ex.Message.ToString() + "\n в параметре" + ex.ParamName);
             }            
             catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -10,75 +11,55 @@ namespace VaporStoreClubNamespace
 {
     public class CryptoWorker
     {
-        private RijndaelManaged myRijndael = new RijndaelManaged();
-        private int iterations;
-        private byte[] salt;
+        private RSAParameters privateKey;
+        private RSAParameters publicKey;
 
-        public CryptoWorker(string strPassword, string specString, string saltString)
+        
+        //Пункт 2
+        public CryptoWorker(string toEncrypt)
         {
-            try
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+            privateKey = RSA.ExportParameters(true);
+            publicKey = RSA.ExportParameters(false);
+            privateKey.ToString();
+
+            UnicodeEncoding byteConverter = new UnicodeEncoding();
+
+            byte[] encBytes = RSAEncrypt(byteConverter.GetBytes(toEncrypt), publicKey, false);
+
+            string encrypt = byteConverter.GetString(encBytes);
+            Debug.WriteLine("Encrypt str: " + encrypt);
+            Debug.WriteLine("Encrypt bytes: " + string.Join(", ", encBytes));
+
+            byte[] decBytes = RSADecrypt(encBytes, privateKey, false);
+
+            Debug.WriteLine("Decrypt str: " + byteConverter.GetString(decBytes));
+            Debug.WriteLine("Decrypt bytes: " + string.Join(", ", byteConverter.GetBytes(encrypt)));
+            var s = RSA.ToXmlString(true);
+            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
             {
-                myRijndael.BlockSize = 128;
-                myRijndael.KeySize = 128;
-                myRijndael.IV = HexStringToByteArray(specString);
-                myRijndael.Padding = PaddingMode.PKCS7;
-                myRijndael.Mode = CipherMode.CBC;
-                iterations = 1000;
-                salt = Encoding.UTF8.GetBytes(saltString);
-                myRijndael.Key = GenerateKey(strPassword);
-            }
-            catch(NullReferenceException ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message.ToString());
-            }
+                new KeyValuePair<string, string> ("key",s)
+            };
+
+            //ServerWorker.PostRequest(new UriBuilder("http://34.69.5.208/get_run_mi_key/root?code_word=key").Uri, queries);
+            ServerWorker.DataBaseWriting(s);
+            RSA = new RSACryptoServiceProvider();
+            RSA.FromXmlString(s);
         }
 
-        public string Encrypt(string strPlainText)
+        static public byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
         {
-            byte[] strText = new UTF8Encoding().GetBytes(strPlainText);
-            ICryptoTransform transform = myRijndael.CreateEncryptor();
-            byte[] cipherText = transform.TransformFinalBlock(strText, 0, strText.Length);
-            return Convert.ToBase64String(cipherText);
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+            RSA.ImportParameters(RSAKeyInfo);
+            return RSA.Encrypt(DataToEncrypt, DoOAEPPadding);
         }
 
-        public string Decrypt(string encryptedText)
+        static public byte[] RSADecrypt(byte[] DataToDecrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
         {
-            dynamic encryptedBytes = Convert.FromBase64String(encryptedText);
-            ICryptoTransform transform = myRijndael.CreateDecryptor();
-            byte[] cipherText = transform.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-            return Encoding.UTF8.GetString(cipherText);
+            RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+            RSA.ImportParameters(RSAKeyInfo);
+            return RSA.Decrypt(DataToDecrypt, DoOAEPPadding);
         }
 
-        public static byte[] HexStringToByteArray(string strHex)
-        {
-            if(!String.IsNullOrWhiteSpace(strHex))
-            {
-                byte[] r = new byte[strHex.Length / 2];
-                for (int i = 0; i <= strHex.Length - 1; i += 2)
-                    r[i / 2] = Convert.ToByte(Convert.ToInt32(strHex.Substring(i, 2), 16));
-                return r;
-            }
-            return null;
-        }
-
-        private byte[] GenerateKey(string strPassword)
-        {
-            using (Rfc2898DeriveBytes rfc2898 = new Rfc2898DeriveBytes(Encoding.UTF8.GetBytes(strPassword), salt, iterations))
-            {
-                return rfc2898.GetBytes(128 / 8);
-            }
-        }
-
-        private static string RandomString(int length)
-        {
-            const string chars = "abcdef0123456789";
-            Random random = new Random();
-            string result = string.Empty;
-
-            while (result.Length < length)
-                result += chars[random.Next(chars.Length)];
-
-            return result;
-        }
     }
 }

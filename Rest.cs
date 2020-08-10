@@ -42,6 +42,10 @@ namespace VaporStoreClubNamespace
                     }));
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
         }
 
         //public async static void UpdateById(int ID,Product product)

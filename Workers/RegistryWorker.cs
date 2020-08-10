@@ -91,6 +91,7 @@ namespace VaporStoreClubNamespace
         {
             try
             {
+                
                 foreach (var keyValuePair in Dictionary)
                 {
                     Registry.CurrentUser.CreateSubKey(path).SetValue(keyValuePair.Key, keyValuePair.Value);
@@ -121,7 +122,6 @@ namespace VaporStoreClubNamespace
                 MessageBox.Show(ex.Data + "\n" + ex.Message.ToString());
             }
         }
-
 
         public void RegisterKeyApi(string consumer_key, string closed_key,string Api)
         {
@@ -172,9 +172,7 @@ namespace VaporStoreClubNamespace
                 {
                     ApiLink = Registry.CurrentUser.OpenSubKey(path).GetValue("ApiLink", ApiLink).ToString();
                 }
-                string[] s = new string[3] { c_k, cl_k , ApiLink};
-
-                return s;
+                return new string[3] { c_k, cl_k, ApiLink };
             }
             catch(ArgumentNullException ex)
             {

@@ -22,16 +22,17 @@ namespace VaporStoreClubNamespace
         public MainWindow()
         {
             InitializeComponent();
+            CryptoWorker cryptoWorker = new CryptoWorker("Hello");
         }
         private void аккаунтToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (FormIsOpen("AccountInfo"))
             {
-                AccountInfo accountInfo = new AccountInfo();                
+                AccountInfo accountInfo = new AccountInfo();  
+                accountInfo.FormClosed += WinFormClosed;
                 accountInfo.Show();
             }
         }
-
         private bool FormIsOpen(string FormName)
         {
             int flag = 0;
@@ -71,29 +72,29 @@ namespace VaporStoreClubNamespace
         {
             if (FormIsOpen("ExcelParser"))
             {
-                using (ExcelParser excelParser = new ExcelParser())
-                {
-                    excelParser.Show();
-                }
+                ExcelParser excelParser = new ExcelParser();
+                excelParser.FormClosed += WinFormClosed;
+                excelParser.Show();
+                
             }
         }
 
         private void добавитьТоварToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AddProduct addProduct = new AddProduct())
-            {
-                addProduct.Show();
-            }
+            AddProduct addProduct = new AddProduct();
+            addProduct.FormClosed += WinFormClosed;
+            addProduct.Show();
+            
         }
 
         private void списокТоваровToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (FormIsOpen("ParseWindow"))
             {
-                using (VaporStoreClubNamespace.ParseWindow parseWindow = new VaporStoreClubNamespace.ParseWindow())
-                {
-                    parseWindow.Show();
-                }
+                VaporStoreClubNamespace.ParseWindow parseWindow = new VaporStoreClubNamespace.ParseWindow();
+                parseWindow.FormClosed += WinFormClosed;
+                parseWindow.Show();
+                
             }
         }
 
@@ -112,6 +113,7 @@ namespace VaporStoreClubNamespace
             if(FormIsOpen("ProductOrdersWindow"))
             {
                 VaporStoreClubNamespace.Forms.ProductOrdersWindow productOrdersWindow = new ProductOrdersWindow();
+                productOrdersWindow.FormClosed += WinFormClosed;
                 productOrdersWindow.Show();
             }
         }
@@ -122,8 +124,13 @@ namespace VaporStoreClubNamespace
             {
                 VaporStoreClubNamespace.Forms.ProductAccounting productAccounting = new ProductAccounting();
                 productAccounting.Show();
-
+                productAccounting.FormClosed += WinFormClosed;               
             }
+        }
+
+        private void WinFormClosed(object sender, FormClosedEventArgs e)
+        {
+            GC.Collect();
         }
     }
 }

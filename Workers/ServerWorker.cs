@@ -11,13 +11,8 @@ namespace VaporStoreClubNamespace
     static class ServerWorker
     {
         //string uripath = @"http://34.69.5.208/";
-        public async static void PostRequest(Uri uri)
-        {
-            IEnumerable<KeyValuePair<string, string>> queries = new List<KeyValuePair<string, string>>()
-            {
-                new KeyValuePair<string, string> ("key","value")
-            };
-            
+        public async static void PostRequest(Uri uri,IEnumerable<KeyValuePair<string, string>> queries)
+        {           
             using (HttpContent httpContent =new FormUrlEncodedContent(queries))
             {
                 using (HttpClient httpClient = new HttpClient())
@@ -32,6 +27,12 @@ namespace VaporStoreClubNamespace
                     }
                 }
             }
+        }
+
+        public async static void DataBaseWriting(string text)
+        {
+            UriBuilder uriBuilder = new UriBuilder(@"http://34.69.5.208/get_save_to_base?text=" + text);
+            await GetRequest(uriBuilder.Uri);
         }
 
         public async static Task<string> GetRequest(Uri uri)
