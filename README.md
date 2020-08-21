@@ -8,11 +8,11 @@ Quick start
 About 
 -----------------------------
 With this program you can:
-1.Add products from .xls or .xlsx file to your WooCommerse plugin
-2.Edit products from your desktop
-3.Send your products list to your site as .xml file
-4.Save secure keys from API to the registry
-5.Using cryptography to encript .xml file before sending to your site
+1. Add products from .xls or .xlsx file to your WooCommerse plugin
+2. Edit products from your desktop
+3. Send your products list to your site as .xml file
+4. Save secure keys from API to the registry
+5. Using cryptography to encript .xml file before sending to your site
 
 
 Why desktop?
