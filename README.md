@@ -2,13 +2,20 @@ VaporStoreClub Admin Panel
 =============================
 ![.NET Core Desktop](https://github.com/p1zza/VaporStoreClub/workflows/.NET%20Core%20Desktop/badge.svg)
 
+Quick start
+-----------------------------
+
 About 
 -----------------------------
-The app uses WooCommerse.Net API to work with site that running with WordPress.
+With this program you can:
+1.Add products from .xls or .xlsx file to your WooCommerse plugin
+2.Edit products from your desktop
+3.Send your products list to your site as .xml file
+4.Save secure keys from API to the registry
+5.Using cryptography to encript .xml file before sending to your site
 
-With that app you can easily add product to your shop.
 
-Quick start
+Why desktop?
 -----------------------------
 
 Requirements
